@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>施術メニュー・料金 | はぎわら治療院</title>
+<meta name="description" content="はぎわら治療院の施術メニューと料金のご案内。指圧・鍼灸・マッサージ。院長・副院長ともに国家資格保有。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@200;300;400;500&family=Noto+Sans+JP:wght@300;400&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/common.css">
+<style>
+/* ── Treatment cards ── */
+.treatment-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:24px}
+.treatment-card{background:#fff;border-radius:6px;overflow:hidden;box-shadow:0 4px 28px rgba(40,28,18,.09);display:flex;flex-direction:column}
+.treatment-card-top{position:relative;aspect-ratio:16/9;overflow:hidden;background:#1a2010}
+.treatment-card-top video{width:100%;height:100%;object-fit:cover;filter:brightness(.65) saturate(.7)}
+.treatment-card-top-overlay{position:absolute;bottom:0;left:0;right:0;padding:24px 20px 16px;background:linear-gradient(to top,rgba(18,12,6,.85),transparent);display:flex;align-items:flex-end;justify-content:space-between}
+.treatment-card-name{font-family:'Noto Serif JP',serif;font-size:1.1rem;font-weight:300;color:#fff;letter-spacing:.1em}
+.treatment-card-en{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:.82rem;color:#dcc07a}
+.treatment-card-body{padding:22px 22px 26px;flex:1;display:flex;flex-direction:column}
+.treatment-num{font-family:'Cormorant Garamond',serif;font-size:.78rem;color:#c89e54;letter-spacing:.2em;display:block;margin-bottom:10px}
+.treatment-heading{font-family:'Noto Serif JP',serif;font-size:.95rem;font-weight:400;color:#28201a;margin-bottom:10px}
+.treatment-desc{font-size:.8rem;font-weight:300;color:#6a5e52;line-height:2.1;flex:1}
+.treatment-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:16px}
+.treatment-tag{font-size:.65rem;color:#3a6050;background:rgba(50,96,80,.08);border:1px solid rgba(50,96,80,.16);padding:3px 9px;border-radius:2px}
+
+/* ── Staff note bar ── */
+.staff-note-bar{background:var(--c-forest);padding:16px 24px;display:flex;align-items:center;gap:14px;border-radius:6px;margin-bottom:32px}
+.staff-note-icon{font-size:1.2rem;flex-shrink:0}
+.staff-note-text{font-family:'Noto Serif JP',serif;font-size:.84rem;font-weight:300;color:rgba(255,255,255,.85);line-height:1.8}
+.staff-note-text strong{color:#dcc07a;font-weight:400}
+
+/* ── National license section ── */
+.license-panel{background:linear-gradient(135deg,#1e3428,#2c2010);border-radius:6px;padding:32px;display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.license-person{}
+.license-person-role{font-family:'Cormorant Garamond',serif;font-size:.72rem;letter-spacing:.28em;text-transform:uppercase;color:#c89e54;display:block;margin-bottom:8px}
+.license-person-name{font-family:'Noto Serif JP',serif;font-size:1rem;font-weight:300;color:#fff;margin-bottom:14px}
+.license-tags{display:flex;flex-wrap:wrap;gap:7px}
+.license-tag-w{font-size:.66rem;color:rgba(255,255,255,.7);background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);padding:4px 11px;border-radius:2px;white-space:nowrap}
+
+/* ── Pricing section ── */
+.pricing-cols{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.price-block{background:#fff;border:1px solid rgba(120,100,80,.1);border-radius:6px;overflow:hidden;box-shadow:0 4px 28px rgba(40,28,18,.08)}
+.price-block-head{padding:18px 24px;display:flex;align-items:center;justify-content:space-between}
+.price-block-head--new{background:linear-gradient(135deg,#2a4a3a,#4a3820)}
+.price-block-head--regular{background:linear-gradient(135deg,#3a3020,#2a4038)}
+.price-block-title{font-family:'Noto Serif JP',serif;font-size:.95rem;font-weight:400;color:#fff;letter-spacing:.04em}
+.price-block-badge{font-size:.62rem;color:#dcc07a;border:1px solid rgba(220,192,122,.4);padding:3px 10px;letter-spacing:.08em;white-space:nowrap}
+.price-row{display:flex;align-items:baseline;justify-content:space-between;padding:14px 24px;border-bottom:1px solid rgba(120,100,80,.08)}
+.price-row:last-of-type{border-bottom:none}
+.price-name{font-family:'Noto Serif JP',serif;font-size:.88rem;font-weight:300;color:#3e3228}
+.price-sub{font-size:.7rem;font-weight:300;color:#6a5e52;display:block;margin-top:2px}
+.price-val{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:300;color:#a87e42;white-space:nowrap}
+.price-val small{font-family:'Noto Sans JP',sans-serif;font-size:.62rem;color:#6a5e52;margin-left:3px}
+.price-note-area{padding:12px 24px 16px;background:rgba(248,245,240,.6);border-top:1px solid rgba(120,100,80,.08);font-size:.72rem;font-weight:300;color:#6a5e52;line-height:2}
+
+/* ── Symptoms ── */
+.symptom-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:10px}
+.symptom-item{background:#fff;border-radius:6px;padding:16px 18px;display:flex;align-items:center;gap:12px;box-shadow:0 2px 12px rgba(40,28,18,.06);transition:box-shadow .2s}
+.symptom-item:hover{box-shadow:0 4px 20px rgba(40,28,18,.12)}
+.symptom-bar{width:3px;height:28px;flex-shrink:0;background:linear-gradient(to bottom,#3a6050,#a87e42);border-radius:2px}
+.symptom-text{font-family:'Noto Serif JP',serif;font-size:.85rem;font-weight:400;color:#3e3228}
+
+/* ── Flow ── */
+.flow-steps{display:grid;grid-template-columns:1fr auto 1fr auto 1fr;align-items:center;gap:0;margin-top:40px}
+.flow-step{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:6px;padding:24px 18px;text-align:center}
+.flow-step-num{font-family:'Cormorant Garamond',serif;font-size:1.8rem;font-weight:300;color:#dcc07a;display:block;line-height:1;margin-bottom:10px}
+.flow-step-name{font-family:'Noto Serif JP',serif;font-size:.92rem;font-weight:400;color:#fff;display:block;margin-bottom:8px}
+.flow-step-desc{font-size:.75rem;font-weight:300;color:rgba(255,255,255,.55);line-height:1.9}
+.flow-sep{font-family:'Cormorant Garamond',serif;font-size:1.6rem;color:#c89e54;padding:0 12px;opacity:.7;text-align:center}
+
+@media(max-width:900px){.treatment-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:640px){
+  .treatment-grid{grid-template-columns:1fr}
+  .pricing-cols{grid-template-columns:1fr}
+  .license-panel{grid-template-columns:1fr}
+  .flow-steps{grid-template-columns:1fr;gap:12px}
+  .flow-sep{transform:rotate(90deg)}
+}
+</style>
+</head>
+<body>
+
+<!-- ナビゲーション -->
+<nav id="site-nav">
+  <a href="index.html" class="nav-logo">
+    <span class="nav-logo__ja">はぎわら治療院</span>
+    <span class="nav-logo__en">Hagiwara Clinic</span>
+  </a>
+  <div class="nav-menu">
+    <a href="index.html">ホーム</a>
+    <a href="menu.html" class="active">施術・料金</a>
+    <a href="pilates.html">ピラティス</a>
+    <a href="access.html">アクセス</a>
+    <a href="maternity.html">妊娠中の方へ</a>
+    <a href="tel:0455309072" class="nav-book">📞 予約する</a>
+  </div>
+  <button class="nav-burger" id="burger"><span></span><span></span><span></span></button>
+</nav>
+<div id="nav-drawer">
+  <button class="drawer-close" id="drawer-close">✕</button>
+  <a href="index.html">ホーム</a>
+  <a href="menu.html">施術・料金</a>
+  <a href="pilates.html">ピラティス</a>
+  <a href="access.html">アクセス</a>
+  <a href="maternity.html">妊娠中の方へ</a>
+  <a href="tel:0455309072" style="color:var(--c-gold)">📞 045-530-9072</a>
+</div>
+
+<!-- ページヒーロー -->
+<div class="page-hero">
+  <div class="page-hero-bg"></div>
+  <div class="page-hero-content">
+    <div class="wrap">
+      <span class="label label--light">Treatment Menu</span>
+      <h1 class="heading page-hero-h1" style="font-size:clamp(2rem,5vw,3.6rem);font-weight:200;color:#fff;margin-top:10px">施術メニュー・料金</h1>
+      <p style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(.9rem,1.6vw,1.1rem);color:rgba(255,255,255,.38);letter-spacing:.08em;margin-top:6px">Shiatsu · Acupuncture · Massage</p>
+    </div>
+  </div>
+</div>
+
+<!-- 国家資格 -->
+<section class="section section--warm">
+  <div class="wrap">
+    <div class="sec-head" data-reveal>
+      <span class="label">National License</span>
+      <h2 class="heading" style="font-size:clamp(1.4rem,2.6vw,2rem);color:var(--c-ink);margin-top:12px">院長・副院長ともに国家資格保有者です</h2>
+      <span class="divider"></span>
+      <p class="sub">安心してお任せください。施術はすべて院長・副院長が担当いたします。</p>
+    </div>
+    <div class="license-panel" data-reveal>
+      <div class="license-person">
+        <span class="license-person-role">Director / 院長</span>
+        <p class="license-person-name">萩原 仁</p>
+        <div class="license-tags">
+          <span class="license-tag-w">はり師</span>
+          <span class="license-tag-w">きゅう師</span>
+          <span class="license-tag-w">あん摩マッサージ指圧師</span>
+          <span class="license-tag-w">内臓反射療法</span>
+          <span class="license-tag-w">国家資格保有</span>
+        </div>
+      </div>
+      <div class="license-person">
+        <span class="license-person-role">Vice Director / 副院長</span>
+        <p class="license-person-name">萩原 朝香</p>
+        <div class="license-tags">
+          <span class="license-tag-w">はり師</span>
+          <span class="license-tag-w">きゅう師</span>
+          <span class="license-tag-w">あん摩マッサージ指圧師</span>
+          <span class="license-tag-w">メディカルピラティス</span>
+          <span class="license-tag-w">季節調整療法</span>
+          <span class="license-tag-w">国家資格保有</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 施術の流れ -->
+<section class="section section--forest">
+  <div class="wrap">
+    <div class="sec-head sec-head--light" data-reveal>
+      <span class="label label--light">Treatment Flow</span>
+      <h2 class="heading" style="font-size:clamp(1.4rem,2.6vw,2rem);color:#fff;margin-top:12px">施術の流れ</h2>
+      <span class="divider"></span>
+    </div>
+    <div class="flow-steps" data-reveal>
+      <div class="flow-step">
+        <span class="flow-step-num">1</span>
+        <span class="flow-step-name">カウンセリング</span>
+        <p class="flow-step-desc">症状・お悩み・日常生活について丁寧にお伺いします</p>
+      </div>
+      <span class="flow-sep">→</span>
+      <div class="flow-step">
+        <span class="flow-step-num">2</span>
+        <span class="flow-step-name">状態チェック</span>
+        <p class="flow-step-desc">体のゆがみ・筋肉・自律神経の状態を確認します</p>
+      </div>
+      <span class="flow-sep">→</span>
+      <div class="flow-step">
+        <span class="flow-step-num">3</span>
+        <span class="flow-step-name">施術</span>
+        <p class="flow-step-desc">最適な手技を組み合わせ、丁寧に対応します</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 施術メニュー -->
+<section class="section section--cream">
+  <div class="wrap">
+    <div class="sec-head" data-reveal>
+      <span class="label">Treatments</span>
+      <h2 class="heading" style="font-size:clamp(1.4rem,2.6vw,2rem);color:var(--c-ink);margin-top:12px">施術メニュー</h2>
+      <span class="divider"></span>
+      <p class="sub">院長・副院長がお体の状態に合わせて最適な施術を組み合わせます。</p>
+    </div>
+    <div class="staff-note-bar" data-reveal>
+      <span class="staff-note-icon">🌿</span>
+      <p class="staff-note-text">すべての施術は<strong>院長・副院長</strong>が直接担当いたします。国家資格保有のスタッフが安心・安全にサポートします。</p>
+    </div>
+    <div class="treatment-grid" data-reveal>
+      <div class="treatment-card">
+        <div class="treatment-card-top">
+          <video autoplay muted loop playsinline src="videos/acupuncture.mp4"></video>
+          <div class="treatment-card-top-overlay">
+            <span class="treatment-card-name">指圧</span>
+            <span class="treatment-card-en">Shiatsu</span>
+          </div>
+        </div>
+        <div class="treatment-card-body">
+          <span class="treatment-num">01</span>
+          <h3 class="treatment-heading">指圧</h3>
+          <p class="treatment-desc">
+            日本で考案された繊細な手技療法。指・手のひらで全身のツボやコリを丁寧に刺激し、自律神経を整えながら症状の根本改善を目指します。コリやツボを刺激することで症状改善を促し、体のもつ自然治癒力を引き出します。
+          </p>
+          <div class="treatment-tags">
+            <span class="treatment-tag">肩こり</span>
+            <span class="treatment-tag">腰痛</span>
+            <span class="treatment-tag">自律神経</span>
+            <span class="treatment-tag">頭痛</span>
+          </div>
+        </div>
+      </div>
+      <div class="treatment-card">
+        <div class="treatment-card-top">
+          <video autoplay muted loop playsinline src="videos/shiatsu.mp4"></video>
+          <div class="treatment-card-top-overlay">
+            <span class="treatment-card-name">鍼灸</span>
+            <span class="treatment-card-en">Acupuncture</span>
+          </div>
+        </div>
+        <div class="treatment-card-body">
+          <span class="treatment-num">02</span>
+          <h3 class="treatment-heading">鍼灸</h3>
+          <p class="treatment-desc">
+            細い鍼とお灸で気の流れを整え、痛みや不調に深部からアプローチします。体の深部から整える施術で、即効性と持続効果を兼ね備えています。冷え性・眼精疲労・婦人科系のお悩みにも対応します。
+          </p>
+          <div class="treatment-tags">
+            <span class="treatment-tag">冷え性</span>
+            <span class="treatment-tag">眼精疲労</span>
+            <span class="treatment-tag">婦人科系</span>
+            <span class="treatment-tag">美容</span>
+          </div>
+        </div>
+      </div>
+      <div class="treatment-card">
+        <div class="treatment-card-top" style="background:linear-gradient(135deg,#1a2810,#2a1808)">
+          <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center">
+            <span style="font-family:'Noto Serif JP',serif;font-size:3rem;font-weight:200;color:rgba(255,255,255,.15);letter-spacing:.2em">整</span>
+          </div>
+          <div class="treatment-card-top-overlay">
+            <span class="treatment-card-name">マッサージ・整体</span>
+            <span class="treatment-card-en">Massage</span>
+          </div>
+        </div>
+        <div class="treatment-card-body">
+          <span class="treatment-num">03</span>
+          <h3 class="treatment-heading">マッサージ・整体</h3>
+          <p class="treatment-desc">
+            筋肉のこわばりをほぐし、体のゆがみをリセット。全身の血行・リンパの流れを促進するリラクゼーション効果も。お体の状態に合わせ、ストレッチや運動療法も組み合わせながら対応します。
+          </p>
+          <div class="treatment-tags">
+            <span class="treatment-tag">全身疲労</span>
+            <span class="treatment-tag">むくみ</span>
+            <span class="treatment-tag">姿勢改善</span>
+            <span class="treatment-tag">リラクゼーション</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- こんなお悩みに -->
+<section class="section section--warm">
+  <div class="wrap">
+    <div class="sec-head" data-reveal>
+      <span class="label">Symptoms</span>
+      <h2 class="heading" style="font-size:clamp(1.4rem,2.6vw,2rem);color:var(--c-ink);margin-top:12px">こんなお悩みに対応しています</h2>
+      <span class="divider"></span>
+    </div>
+    <div class="symptom-grid" data-reveal>
+      <div class="symptom-item"><div class="symptom-bar"></div><span class="symptom-text">肩こり・首こり</span></div>
+      <div class="symptom-item"><div class="symptom-bar"></div><span class="symptom-text">腰痛・ぎっくり腰</span></div>
+      <div class="symptom-item"><div class="symptom-bar"></div><span class="symptom-text">頭痛・片頭痛</span></div>
+      <div class="symptom-item"><div class="symptom-bar"></div><span class="symptom-text">自律神経の乱れ</span></div>
+      <div class="symptom-item"><div class="symptom-bar"></div><span class="symptom-text">冷え性・むくみ</span></div>
+      <div class="symptom-item"><div class="symptom-bar"></div><span class="symptom-text">眼精疲労</span></div>
+      <div class="symptom-item"><div class="symptom-bar"></div><span class="symptom-text">不眠・ストレス</span></div>
+      <div class="symptom-item"><div class="symptom-bar"></div><span class="symptom-text">スポーツ障害</span></div>
+      <div class="symptom-item"><div class="symptom-bar"></div><span class="symptom-text">産前・産後のケア</span></div>
+      <div class="symptom-item"><div class="symptom-bar"></div><span class="symptom-text">美容・リフトアップ</span></div>
+      <div class="symptom-item"><div class="symptom-bar"></div><span class="symptom-text">姿勢の改善</span></div>
+      <div class="symptom-item"><div class="symptom-bar"></div><span class="symptom-text">男性の頭・顔ケア</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- 料金 -->
+<section class="section section--cream">
+  <div class="wrap">
+    <div class="sec-head" data-reveal>
+      <span class="label">Pricing</span>
+      <h2 class="heading" style="font-size:clamp(1.4rem,2.6vw,2rem);color:var(--c-ink);margin-top:12px">料金のご案内</h2>
+      <span class="divider"></span>
+    </div>
+    <div class="pricing-cols" data-reveal>
+      <!-- ご新規様 -->
+      <div class="price-block">
+        <div class="price-block-head price-block-head--new">
+          <span class="price-block-title">ご新規様 お試しコース</span>
+          <span class="price-block-badge">初めての方</span>
+        </div>
+        <div class="price-row">
+          <div>
+            <span class="price-name">60分コース</span>
+            <span class="price-sub">頭痛・肩こり または 腰痛改善</span>
+          </div>
+          <span class="price-val">5,990<small>円（税込）</small></span>
+        </div>
+        <div class="price-row">
+          <div>
+            <span class="price-name">70分コース</span>
+            <span class="price-sub">全身50分 ＋ 局部刺激20分</span>
+          </div>
+          <span class="price-val">7,230<small>円（税込）</small></span>
+        </div>
+        <div class="price-row">
+          <div>
+            <span class="price-name">90分コース</span>
+            <span class="price-sub">症状の強い方への全身ケア</span>
+          </div>
+          <span class="price-val">8,990<small>円（税込）</small></span>
+        </div>
+        <div class="price-note-area">
+          ※ご新規の方に限ります。ご予約の際に「お試しコース希望」とお伝えください。<br>
+          ※初回カウンセリング無料。
+        </div>
+      </div>
+
+      <!-- 通常コース -->
+      <div class="price-block">
+        <div class="price-block-head price-block-head--regular">
+          <span class="price-block-title">通常コース</span>
+          <span class="price-block-badge">基本料金</span>
+        </div>
+        <div class="price-row">
+          <span class="price-name">30分</span>
+          <span class="price-val">3,990<small>円（税込）</small></span>
+        </div>
+        <div class="price-row">
+          <span class="price-name">60分</span>
+          <span class="price-val">7,620<small>円（税込）</small></span>
+        </div>
+        <div class="price-row">
+          <span class="price-name">90分</span>
+          <span class="price-val">11,250<small>円（税込）</small></span>
+        </div>
+        <div class="price-row">
+          <span class="price-name">施術のみ 30分</span>
+          <span class="price-val">2,190<small>円（税込）</small></span>
+        </div>
+        <div class="price-note-area">
+          ※学生の方は20%OFF。<br>
+          ※回数券もございます。詳しくはお問い合わせください。<br>
+          ※各種施術の組み合わせはご相談ください。
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="section section--forest" style="padding:clamp(48px,7vw,80px) 0;text-align:center">
+  <div class="wrap">
+    <p class="label label--light" style="justify-content:center;margin-bottom:14px">Reservation</p>
+    <h2 class="heading" style="font-size:clamp(1.3rem,2.4vw,1.9rem);color:#fff;margin-bottom:20px">まずはお気軽にご相談ください</h2>
+    <p style="font-size:.84rem;font-weight:300;color:rgba(255,255,255,.55);margin-bottom:32px;line-height:2">初回カウンセリング無料 ／ 予約優先</p>
+    <a class="btn btn-fill" href="tel:0455309072">📞 045-530-9072</a>
+  </div>
+</section>
+
+<!-- フッター -->
+<footer id="site-footer">
+  <div class="wrap">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <span class="label label--light" style="margin-bottom:14px">Hagiwara Clinic</span>
+        <p class="footer-name">はぎわら治療院</p>
+        <p class="footer-addr">〒227-0063 横浜市青葉区榎が丘2-1 ビンセプト 203号<br>青葉台駅西口 徒歩3分</p>
+      </div>
+      <div>
+        <p class="footer-col-title">Menu</p>
+        <div class="footer-links">
+          <a href="index.html">ホーム</a>
+          <a href="menu.html">施術・料金</a>
+          <a href="pilates.html">ピラティス</a>
+          <a href="access.html">アクセス</a>
+          <a href="maternity.html">妊娠中の方へ</a>
+        </div>
+      </div>
+      <div>
+        <p class="footer-col-title">Contact</p>
+        <a class="footer-tel" href="tel:0455309072">045-530-9072</a>
+        <p class="footer-hours">10:00 〜 20:00（最終受付）<br>定休日：水曜日｜予約優先</p>
+      </div>
+    </div>
+    <p class="footer-copy">© 2015 Hagiwara Clinic. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+const nav = document.getElementById('site-nav');
+window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 60), {passive:true});
+document.getElementById('burger').addEventListener('click', () => document.getElementById('nav-drawer').classList.add('open'));
+document.getElementById('drawer-close').addEventListener('click', () => document.getElementById('nav-drawer').classList.remove('open'));
+const ro = new IntersectionObserver(es => es.forEach(e => { if(e.isIntersecting){e.target.classList.add('on');ro.unobserve(e.target)} }), {threshold:.1});
+document.querySelectorAll('[data-reveal]').forEach(el => ro.observe(el));
+</script>
+</body>
+</html>

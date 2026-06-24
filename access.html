@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>アクセス・駐車場 | はぎわら治療院</title>
+<meta name="description" content="はぎわら治療院へのアクセス。横浜市青葉区榎が丘。青葉台駅西口徒歩3分。目の前にコインパーキングあり。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@200;300;400;500&family=Noto+Sans+JP:wght@300;400&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/common.css">
+<style>
+/* ── Info grid ── */
+.access-info-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,5vw,64px);align-items:start}
+.access-map{border-radius:8px;overflow:hidden;aspect-ratio:1;box-shadow:0 8px 32px rgba(40,28,18,.14)}
+.access-map iframe{width:100%;height:100%;display:block;filter:grayscale(.2)}
+.info-block{display:flex;flex-direction:column;gap:24px}
+.info-row{display:flex;gap:18px;align-items:flex-start;padding-bottom:20px;border-bottom:1px solid rgba(120,100,80,.1)}
+.info-row:last-child{border-bottom:none}
+.info-icon{width:40px;height:40px;border-radius:50%;background:var(--c-forest);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:1rem}
+.info-label{font-family:'Cormorant Garamond',serif;font-size:.68rem;letter-spacing:.28em;text-transform:uppercase;color:var(--c-gold);display:block;margin-bottom:5px}
+.info-value{font-family:'Noto Serif JP',serif;font-size:.92rem;font-weight:300;color:var(--c-ink2);line-height:1.9}
+.info-value strong{font-weight:400;color:var(--c-ink)}
+.tel-link{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:300;color:var(--c-gold);letter-spacing:.06em;display:block;margin-top:4px}
+
+/* ── Route cards ── */
+.route-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.route-card{background:#fff;border-radius:6px;padding:24px 22px;box-shadow:0 4px 24px rgba(40,28,18,.08);border-left:3px solid var(--c-forest2)}
+.route-icon-row{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+.route-icon{font-size:1.4rem}
+.route-type{font-family:'Cormorant Garamond',serif;font-size:.72rem;letter-spacing:.24em;text-transform:uppercase;color:var(--c-gold)}
+.route-title{font-family:'Noto Serif JP',serif;font-size:.95rem;font-weight:400;color:var(--c-ink);margin-bottom:8px}
+.route-desc{font-size:.8rem;font-weight:300;color:var(--c-ink3);line-height:2.1}
+
+/* ── Parking cards ── */
+.parking-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.parking-card{border-radius:8px;overflow:hidden;background:#fff;box-shadow:0 4px 28px rgba(40,28,18,.09)}
+.parking-card-top{padding:16px 22px;display:flex;align-items:center;gap:12px}
+.parking-card-top--primary{background:linear-gradient(135deg,#2a4a3a,#1e2820)}
+.parking-card-top--secondary{background:linear-gradient(135deg,#3a3020,#2a2018)}
+.parking-icon{font-size:1.6rem}
+.parking-type-label{font-family:'Cormorant Garamond',serif;font-size:.65rem;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,.5);display:block;margin-bottom:2px}
+.parking-name{font-family:'Noto Serif JP',serif;font-size:.92rem;font-weight:400;color:#fff}
+.parking-body{padding:18px 22px 22px}
+.parking-tag{display:inline-block;font-size:.62rem;font-weight:400;color:var(--c-forest2);background:rgba(42,74,58,.1);border:1px solid rgba(42,74,58,.18);border-radius:2px;padding:3px 10px;margin-bottom:12px;letter-spacing:.06em}
+.parking-desc{font-size:.82rem;font-weight:300;color:var(--c-ink3);line-height:2.1}
+.parking-note{margin-top:12px;font-size:.74rem;color:var(--c-ink3);background:rgba(240,235,226,.6);border-left:2px solid var(--c-gold2);padding:10px 14px;line-height:1.9}
+
+/* ── Hours table ── */
+.hours-table{width:100%;border-collapse:collapse}
+.hours-table th,.hours-table td{padding:12px 16px;text-align:left;border-bottom:1px solid rgba(120,100,80,.08);font-size:.84rem;font-weight:300}
+.hours-table th{font-family:'Noto Serif JP',serif;font-weight:400;color:var(--c-forest2);white-space:nowrap;width:160px}
+.hours-table td{color:var(--c-ink2);line-height:1.8}
+.hours-table tr:last-child th,.hours-table tr:last-child td{border-bottom:none}
+.closed{color:#c05040;font-weight:400}
+
+@media(max-width:760px){
+  .access-info-grid,.route-grid,.parking-grid{grid-template-columns:1fr}
+  .access-map{aspect-ratio:4/3}
+}
+</style>
+</head>
+<body>
+
+<!-- ナビゲーション -->
+<nav id="site-nav">
+  <a href="index.html" class="nav-logo">
+    <span class="nav-logo__ja">はぎわら治療院</span>
+    <span class="nav-logo__en">Hagiwara Clinic</span>
+  </a>
+  <div class="nav-menu">
+    <a href="index.html">ホーム</a>
+    <a href="menu.html">施術・料金</a>
+    <a href="pilates.html">ピラティス</a>
+    <a href="access.html" class="active">アクセス</a>
+    <a href="maternity.html">妊娠中の方へ</a>
+    <a href="tel:0455309072" class="nav-book">📞 予約する</a>
+  </div>
+  <button class="nav-burger" id="burger"><span></span><span></span><span></span></button>
+</nav>
+<div id="nav-drawer">
+  <button class="drawer-close" id="drawer-close">✕</button>
+  <a href="index.html">ホーム</a>
+  <a href="menu.html">施術・料金</a>
+  <a href="pilates.html">ピラティス</a>
+  <a href="access.html">アクセス</a>
+  <a href="maternity.html">妊娠中の方へ</a>
+  <a href="tel:0455309072" style="color:var(--c-gold)">📞 045-530-9072</a>
+</div>
+
+<!-- ページヒーロー -->
+<div class="page-hero">
+  <div class="page-hero-bg"></div>
+  <div class="page-hero-content">
+    <div class="wrap">
+      <span class="label label--light">Access &amp; Parking</span>
+      <h1 class="heading" style="font-size:clamp(2rem,5vw,3.6rem);font-weight:200;color:#fff;margin-top:10px">アクセス・駐車場</h1>
+      <p style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(.9rem,1.6vw,1.1rem);color:rgba(255,255,255,.38);letter-spacing:.08em;margin-top:6px">Yokohama Aoba-ku Enogaoka</p>
+    </div>
+  </div>
+</div>
+
+<!-- 基本情報 & 地図 -->
+<section class="section section--cream">
+  <div class="wrap">
+    <div class="access-info-grid">
+      <div class="info-block" data-reveal>
+
+        <div class="info-row">
+          <div class="info-icon">📍</div>
+          <div>
+            <span class="info-label">Address</span>
+            <p class="info-value">
+              〒227-0063<br>
+              <strong>横浜市青葉区榎が丘2-1 ビンセプト 203号</strong>
+            </p>
+          </div>
+        </div>
+
+        <div class="info-row">
+          <div class="info-icon">📞</div>
+          <div>
+            <span class="info-label">Tel</span>
+            <a class="tel-link" href="tel:0455309072">045-530-9072</a>
+            <p class="info-value" style="font-size:.78rem;color:var(--c-ink3)">予約優先 ／ お気軽にお電話ください</p>
+          </div>
+        </div>
+
+        <div class="info-row">
+          <div class="info-icon">🕐</div>
+          <div>
+            <span class="info-label">Hours</span>
+            <table class="hours-table" style="margin-top:6px">
+              <tr><th>月・火・木・金</th><td>10:00 〜 20:00</td></tr>
+              <tr><th>土・日・祝</th><td>10:00 〜 20:00</td></tr>
+              <tr><th>水曜日</th><td class="closed">定休日</td></tr>
+            </table>
+            <p class="info-value" style="font-size:.74rem;color:var(--c-ink3);margin-top:8px">※最終受付 20:00</p>
+          </div>
+        </div>
+
+      </div>
+
+      <div data-reveal data-d="2">
+        <div class="access-map">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3250.2!2d139.5153!3d35.5449!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60185801cdf79781%3A0x81e7e60bd498c00!2z44Gv44GO44KP44KJ5rW35YWt6Zmi!5e0!3m2!1sja!2sjp!4v1"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="はぎわら治療院 地図">
+          </iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- アクセス方法 -->
+<section class="section section--warm">
+  <div class="wrap">
+    <div class="sec-head" data-reveal>
+      <span class="label">How to Get Here</span>
+      <h2 class="heading" style="font-size:clamp(1.4rem,2.6vw,2rem);color:var(--c-ink);margin-top:12px">アクセス方法</h2>
+      <span class="divider"></span>
+    </div>
+    <div class="route-grid" data-reveal>
+      <div class="route-card">
+        <div class="route-icon-row">
+          <span class="route-icon">🚃</span>
+          <span class="route-type">By Train</span>
+        </div>
+        <h3 class="route-title">電車でお越しの方</h3>
+        <p class="route-desc">
+          東急田園都市線<strong>「青葉台駅」西口</strong>より<strong>徒歩約3分</strong><br><br>
+          改札を出て西口へ。そのまま直進すると右手にビンセプトビルがございます。
+        </p>
+      </div>
+      <div class="route-card">
+        <div class="route-icon-row">
+          <span class="route-icon">🚌</span>
+          <span class="route-type">By Bus</span>
+        </div>
+        <h3 class="route-title">バスでお越しの方</h3>
+        <p class="route-desc">
+          バス停<strong>「えのき橋」</strong>より<strong>徒歩約1分</strong><br><br>
+          バスを降りたらすぐ近くです。迷われた場合はお気軽にお電話ください。
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 駐車場 -->
+<section class="section section--cream">
+  <div class="wrap">
+    <div class="sec-head" data-reveal>
+      <span class="label">Parking</span>
+      <h2 class="heading" style="font-size:clamp(1.4rem,2.6vw,2rem);color:var(--c-ink);margin-top:12px">お車でお越しの方へ</h2>
+      <span class="divider"></span>
+      <p class="sub">お車でお越しの方もご安心ください。近隣に駐車場がございます。</p>
+    </div>
+    <div class="parking-grid" data-reveal>
+
+      <div class="parking-card">
+        <div class="parking-card-top parking-card-top--primary">
+          <span class="parking-icon">🅿️</span>
+          <div>
+            <span class="parking-type-label">Recommended</span>
+            <span class="parking-name">治療院目の前 コインパーキング</span>
+          </div>
+        </div>
+        <div class="parking-body">
+          <span class="parking-tag">おすすめ</span>
+          <p class="parking-desc">
+            ビンセプトビルの<strong>目の前</strong>にコインパーキングがございます。最も便利にご利用いただけます。
+          </p>
+          <div class="parking-note">
+            ⏱ 料金・台数は現地でご確認ください。<br>
+            施術中は空きが出ることもありますので、お気軽にお越しください。
+          </div>
+        </div>
+      </div>
+
+      <div class="parking-card">
+        <div class="parking-card-top parking-card-top--secondary">
+          <span class="parking-icon">🏬</span>
+          <div>
+            <span class="parking-type-label">Nearby</span>
+            <span class="parking-name">東急スクエア 駐車場</span>
+          </div>
+        </div>
+        <div class="parking-body">
+          <span class="parking-tag">近隣大型駐車場</span>
+          <p class="parking-desc">
+            「<strong>東急スクエア</strong>」の駐車場もご利用いただけます。台数が多く、お買い物ついでのご来院にも便利です。
+          </p>
+          <div class="parking-note">
+            🛒 東急スクエアでのお買い物との組み合わせもおすすめです。<br>
+            駐車場の詳細は東急スクエアのウェブサイトをご確認ください。
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="section section--forest" style="padding:clamp(48px,7vw,80px) 0;text-align:center">
+  <div class="wrap">
+    <p class="label label--light" style="justify-content:center;margin-bottom:14px">Reservation</p>
+    <h2 class="heading" style="font-size:clamp(1.3rem,2.4vw,1.9rem);color:#fff;margin-bottom:20px">ご予約・お問い合わせ</h2>
+    <p style="font-size:.84rem;font-weight:300;color:rgba(255,255,255,.55);margin-bottom:32px;line-height:2">
+      ご来院前にご不明な点がございましたら<br>お気軽にお電話ください
+    </p>
+    <a class="btn btn-fill" href="tel:0455309072">📞 045-530-9072</a>
+  </div>
+</section>
+
+<!-- フッター -->
+<footer id="site-footer">
+  <div class="wrap">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <span class="label label--light" style="margin-bottom:14px">Hagiwara Clinic</span>
+        <p class="footer-name">はぎわら治療院</p>
+        <p class="footer-addr">〒227-0063 横浜市青葉区榎が丘2-1 ビンセプト 203号<br>青葉台駅西口 徒歩3分</p>
+      </div>
+      <div>
+        <p class="footer-col-title">Menu</p>
+        <div class="footer-links">
+          <a href="index.html">ホーム</a>
+          <a href="menu.html">施術・料金</a>
+          <a href="pilates.html">ピラティス</a>
+          <a href="access.html">アクセス</a>
+          <a href="maternity.html">妊娠中の方へ</a>
+        </div>
+      </div>
+      <div>
+        <p class="footer-col-title">Contact</p>
+        <a class="footer-tel" href="tel:0455309072">045-530-9072</a>
+        <p class="footer-hours">10:00 〜 20:00（最終受付）<br>定休日：水曜日｜予約優先</p>
+      </div>
+    </div>
+    <p class="footer-copy">© 2015 Hagiwara Clinic. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+const nav = document.getElementById('site-nav');
+window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 60), {passive:true});
+document.getElementById('burger').addEventListener('click', () => document.getElementById('nav-drawer').classList.add('open'));
+document.getElementById('drawer-close').addEventListener('click', () => document.getElementById('nav-drawer').classList.remove('open'));
+const ro = new IntersectionObserver(es => es.forEach(e => { if(e.isIntersecting){e.target.classList.add('on');ro.unobserve(e.target)} }), {threshold:.1});
+document.querySelectorAll('[data-reveal]').forEach(el => ro.observe(el));
+</script>
+</body>
+</html>

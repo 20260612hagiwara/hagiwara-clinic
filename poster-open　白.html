@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>オープン告知ポスター — ASAKA Medical Pilates Studio</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;500;700;900&family=Noto+Sans+JP:wght@400;700;900&family=Cormorant+Garamond:wght@600&display=swap" rel="stylesheet">
+<style>
+@page { size: A4 portrait; margin: 0; }
+@media print {
+  body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .no-print { display: none; }
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Noto Sans JP', sans-serif;
+  background: #b0a898;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 32px 16px 48px;
+}
+
+.poster {
+  width: 210mm;
+  min-height: 297mm;
+  background: #fff;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 36px 40px 36px;
+  box-shadow: 0 12px 60px rgba(0,0,0,.25);
+}
+
+.poster::after {
+  content: '';
+  position: absolute;
+  inset: 12px;
+  border: 2px solid #b89040;
+  pointer-events: none;
+}
+
+.poster-inner {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+}
+
+/* ── ロゴ ── */
+.logo-wrap {
+  margin-bottom: 28px;
+}
+.logo-wrap img {
+  width: 420px;
+  height: auto;
+}
+
+/* ── スタジオ名 ── */
+.studio-name {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 21pt;
+  font-weight: 700;
+  color: #1a2d4a;
+  letter-spacing: .12em;
+  text-align: center;
+  line-height: 1.5;
+  margin-bottom: 28px;
+}
+
+/* ── 区切り ── */
+.divider {
+  width: 90%;
+  height: 2px;
+  background: linear-gradient(to right, transparent, #b89040, transparent);
+  margin-bottom: 28px;
+}
+
+/* ── OPEN告知 ── */
+.open-block {
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+.open-month {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 108pt;
+  font-weight: 700;
+  color: #1a2d4a;
+  line-height: 1;
+  display: block;
+  letter-spacing: .04em;
+}
+.open-month em {
+  font-style: normal;
+  color: #a87e42;
+}
+
+.open-timing {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 45pt;
+  font-weight: 700;
+  color: #1a2d4a;
+  letter-spacing: .18em;
+  display: block;
+  margin-top: 4px;
+}
+
+/* ── 区切り ── */
+.divider2 {
+  width: 90%;
+  height: 2px;
+  background: linear-gradient(to right, transparent, #b89040, transparent);
+  margin-bottom: 28px;
+}
+
+/* ── 情報リスト ── */
+.info-list {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-bottom: 28px;
+}
+
+.info-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.info-en {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 13pt;
+  font-weight: 600;
+  letter-spacing: .42em;
+  text-transform: uppercase;
+  color: #a87e42;
+}
+
+.info-text {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 27pt;
+  font-weight: 700;
+  color: #1a2d4a;
+  letter-spacing: .06em;
+  text-align: center;
+  line-height: 1.4;
+}
+
+/* ── フッター ── */
+.footer-divider {
+  width: 90%;
+  height: 1.5px;
+  background: linear-gradient(to right, transparent, #b89040, transparent);
+  margin-bottom: 18px;
+}
+
+.footer-text {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 12pt;
+  font-weight: 400;
+  color: #7a6a58;
+  letter-spacing: .1em;
+  line-height: 2;
+  text-align: center;
+}
+
+/* ── 印刷ボタン ── */
+.print-btn {
+  margin-top: 28px;
+  padding: 13px 40px;
+  background: #1a2d4a;
+  color: #fff;
+  font-family: 'Noto Sans JP', sans-serif;
+  font-size: 14px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  letter-spacing: .1em;
+  transition: background .2s;
+}
+.print-btn:hover { background: #2a4a70; }
+</style>
+</head>
+<body>
+
+<div class="poster">
+  <div class="poster-inner">
+
+    <!-- ロゴ -->
+    <div class="logo-wrap">
+      <img src="images/決定稿背景なしふちなし.png" alt="ASAKA Medical Pilates Studio">
+    </div>
+
+    <!-- スタジオ名 -->
+    <p class="studio-name">ASAKAメディカルピラティススタジオ</p>
+
+    <div class="divider"></div>
+
+    <!-- OPEN告知 -->
+    <div class="open-block">
+      <span class="open-month"><em>６月</em>中旬</span>
+      <span class="open-timing">OPEN 予定</span>
+    </div>
+
+    <div class="divider2"></div>
+
+    <!-- 情報 -->
+    <div class="info-list">
+      <div class="info-item">
+        <span class="info-en">Location</span>
+        <span class="info-text">同ビル 3F・301号室</span>
+      </div>
+      <div class="info-item">
+        <span class="info-en">Equipment</span>
+        <span class="info-text">ピラティスマシン 導入</span>
+      </div>
+      <div class="info-item">
+        <span class="info-en">Space</span>
+        <span class="info-text">完全プライベートスペース</span>
+      </div>
+    </div>
+
+    <div class="footer-divider"></div>
+
+    <p class="footer-text">
+      はぎわら治療院 2F ✦ 横浜市青葉区榎が丘2-1 ビンセプト<br>
+      Tel. 045-530-9072
+    </p>
+
+  </div>
+</div>
+
+<button class="print-btn no-print" onclick="window.print()">🖨 印刷する（A4）</button>
+
+</body>
+</html>

@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>妊娠中の方へ | はぎわら治療院</title>
+<meta name="description" content="はぎわら治療院の妊婦向け施術。産前・産後の腰痛・むくみ・不眠など、国家資格保有のスタッフが安心・安全にサポートします。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@200;300;400;500&family=Noto+Sans+JP:wght@300;400&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/common.css">
+<style>
+/* ── Maternity hero ── */
+.mat-hero{
+  position:relative;height:clamp(300px,40vw,460px);
+  display:flex;align-items:flex-end;
+  padding-bottom:clamp(44px,6vw,72px);overflow:hidden;
+}
+.mat-hero-bg{
+  position:absolute;inset:0;
+  background:linear-gradient(155deg,#2c1e28 0%,#1e2c20 50%,#2a1c14 100%);
+}
+.mat-hero-bg::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse 60% 60% at 35% 50%,rgba(200,160,180,.12) 0%,transparent 60%),
+             radial-gradient(ellipse 50% 50% at 75% 40%,rgba(160,120,64,.1) 0%,transparent 55%);
+}
+.mat-hero-content{position:relative;z-index:2;width:100%;padding-top:68px}
+.mat-badge{display:inline-block;font-size:.68rem;font-weight:400;letter-spacing:.2em;color:#c89e54;border:1px solid rgba(200,160,80,.35);padding:5px 16px;margin-bottom:14px;font-family:'Noto Sans JP',sans-serif}
+
+/* ── Message section ── */
+.mat-message-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:clamp(40px,6vw,80px);align-items:center}
+.mat-message-quote{
+  font-family:'Noto Serif JP',serif;
+  font-size:clamp(1.1rem,1.9vw,1.35rem);
+  font-weight:300;line-height:2;
+  color:var(--c-ink);
+  border-left:2px solid var(--c-gold-pale);
+  padding-left:22px;margin-bottom:24px;
+}
+.mat-message-body{font-size:.86rem;font-weight:300;color:var(--c-ink3);line-height:2.3}
+.mat-safe-box{
+  background:linear-gradient(135deg,#f0ebe2,#f5f0ea);
+  border:1px solid rgba(120,100,80,.12);
+  border-radius:8px;padding:28px 24px;
+  text-align:center;
+}
+.mat-safe-icon{font-size:2.4rem;margin-bottom:12px;display:block}
+.mat-safe-title{font-family:'Noto Serif JP',serif;font-size:1rem;font-weight:400;color:var(--c-ink);margin-bottom:10px}
+.mat-safe-text{font-size:.8rem;font-weight:300;color:var(--c-ink3);line-height:2.1}
+
+/* ── Symptoms grid ── */
+.mat-symptom-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px}
+.mat-symptom-item{
+  background:#fff;border-radius:6px;
+  padding:18px 18px;display:flex;align-items:flex-start;gap:12px;
+  box-shadow:0 2px 12px rgba(40,28,18,.07);
+  transition:box-shadow .2s;
+}
+.mat-symptom-item:hover{box-shadow:0 4px 20px rgba(40,28,18,.12)}
+.mat-symptom-dot{
+  width:8px;height:8px;border-radius:50%;flex-shrink:0;margin-top:9px;
+  background:linear-gradient(135deg,var(--c-forest2),var(--c-gold));
+}
+.mat-symptom-text{font-family:'Noto Serif JP',serif;font-size:.86rem;font-weight:400;color:var(--c-ink2);line-height:1.7}
+.mat-symptom-sub{font-size:.72rem;font-weight:300;color:var(--c-ink3);display:block;margin-top:2px}
+
+/* ── Points ── */
+.mat-points-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.mat-point{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:8px;padding:28px 22px;text-align:center}
+.mat-point-num{font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:300;color:#dcc07a;display:block;margin-bottom:10px}
+.mat-point-title{font-family:'Noto Serif JP',serif;font-size:.95rem;font-weight:400;color:#fff;margin-bottom:10px;display:block}
+.mat-point-desc{font-size:.78rem;font-weight:300;color:rgba(255,255,255,.55);line-height:2}
+
+/* ── Staff highlight ── */
+.mat-staff-box{
+  background:linear-gradient(135deg,#1e3428,#2a1c20);
+  border-radius:8px;padding:32px;
+  display:flex;gap:24px;align-items:flex-start;
+}
+.mat-staff-photo{width:100px;height:100px;border-radius:50%;overflow:hidden;border:2px solid rgba(200,160,80,.3);flex-shrink:0}
+.mat-staff-photo img{width:100%;height:100%;object-fit:cover;object-position:top center}
+.mat-staff-info{}
+.mat-staff-role{font-family:'Cormorant Garamond',serif;font-size:.68rem;letter-spacing:.28em;text-transform:uppercase;color:#c89e54;display:block;margin-bottom:6px}
+.mat-staff-name{font-family:'Noto Serif JP',serif;font-size:1.1rem;font-weight:300;color:#fff;margin-bottom:10px}
+.mat-staff-message{font-family:'Noto Serif JP',serif;font-size:.84rem;font-weight:300;color:rgba(255,255,255,.65);line-height:2.1}
+
+/* ── FAQ ── */
+.mat-faq-list{display:flex;flex-direction:column}
+.mat-faq-item{border-bottom:1px solid rgba(120,100,80,.1)}
+.mat-faq-q{display:flex;align-items:flex-start;gap:14px;padding:18px 0;cursor:pointer}
+.mat-faq-q:hover .mat-faq-q-text{color:var(--c-forest2)}
+.mat-faq-q-mark{font-family:'Cormorant Garamond',serif;font-size:1.15rem;font-weight:300;color:var(--c-gold);flex-shrink:0;margin-top:1px;width:18px}
+.mat-faq-q-text{font-family:'Noto Serif JP',serif;font-size:.9rem;font-weight:400;color:var(--c-ink);line-height:1.7;flex:1;transition:color .2s}
+.mat-faq-q-icon{font-size:.68rem;color:var(--c-gold2);flex-shrink:0;margin-top:6px;transition:transform .3s}
+.mat-faq-item.open .mat-faq-q-icon{transform:rotate(180deg)}
+.mat-faq-a{display:none;padding:0 0 18px 32px;font-size:.82rem;font-weight:300;color:var(--c-ink2);line-height:2.1}
+.mat-faq-item.open .mat-faq-a{display:block}
+.mat-faq-a-mark{font-family:'Cormorant Garamond',serif;font-size:1rem;color:var(--c-forest2);margin-right:9px}
+
+/* ── Caution box ── */
+.caution-box{background:#fff8f8;border:1px solid rgba(200,60,60,.1);border-left:3px solid #c05040;border-radius:6px;padding:20px 22px}
+.caution-title{font-family:'Noto Serif JP',serif;font-size:.88rem;font-weight:400;color:#c05040;margin-bottom:10px;display:flex;align-items:center;gap:8px}
+.caution-text{font-size:.8rem;font-weight:300;color:#6a5e52;line-height:2.1}
+
+@media(max-width:760px){
+  .mat-message-grid{grid-template-columns:1fr}
+  .mat-points-grid{grid-template-columns:1fr 1fr}
+  .mat-staff-box{flex-direction:column}
+}
+@media(max-width:500px){.mat-points-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<!-- ナビゲーション -->
+<nav id="site-nav">
+  <a href="index.html" class="nav-logo">
+    <span class="nav-logo__ja">はぎわら治療院</span>
+    <span class="nav-logo__en">Hagiwara Clinic</span>
+  </a>
+  <div class="nav-menu">
+    <a href="index.html">ホーム</a>
+    <a href="menu.html">施術・料金</a>
+    <a href="pilates.html">ピラティス</a>
+    <a href="access.html">アクセス</a>
+    <a href="maternity.html" class="active">妊娠中の方へ</a>
+    <a href="tel:0455309072" class="nav-book">📞 予約する</a>
+  </div>
+  <button class="nav-burger" id="burger"><span></span><span></span><span></span></button>
+</nav>
+<div id="nav-drawer">
+  <button class="drawer-close" id="drawer-close">✕</button>
+  <a href="index.html">ホーム</a>
+  <a href="menu.html">施術・料金</a>
+  <a href="pilates.html">ピラティス</a>
+  <a href="access.html">アクセス</a>
+  <a href="maternity.html">妊娠中の方へ</a>
+  <a href="tel:0455309072" style="color:var(--c-gold)">📞 045-530-9072</a>
+</div>
+
+<!-- ヒーロー -->
+<div class="mat-hero">
+  <div class="mat-hero-bg"></div>
+  <div class="mat-hero-content">
+    <div class="wrap">
+      <span class="mat-badge">妊娠中・産前産後ケア</span>
+      <h1 class="heading" style="font-size:clamp(2rem,5vw,3.4rem);font-weight:200;color:#fff;line-height:1.35;margin-top:4px">
+        妊娠中の方へ
+      </h1>
+      <p style="font-family:'Noto Serif JP',serif;font-size:clamp(.88rem,1.5vw,1.05rem);font-weight:300;color:rgba(255,255,255,.55);margin-top:12px;line-height:2">
+        安心・安全な施術で、大切な時期を丁寧にサポートします。
+      </p>
+    </div>
+  </div>
+</div>
+
+<!-- メッセージ -->
+<section class="section section--cream">
+  <div class="wrap">
+    <div class="mat-message-grid">
+      <div data-reveal>
+        <div class="sec-head">
+          <span class="label">For Mothers-to-be</span>
+          <h2 class="heading" style="font-size:clamp(1.3rem,2.4vw,1.9rem);color:var(--c-ink);margin-top:12px">妊娠中でも、施術を受けられます。</h2>
+          <span class="divider"></span>
+        </div>
+        <p class="mat-message-quote">
+          妊娠中の体の変化は、<br>
+          人それぞれ異なります。<br>
+          あなたとお腹のお子さんのために、<br>
+          最も安心できる施術を。
+        </p>
+        <p class="mat-message-body">
+          妊娠中は体のバランスが大きく変化し、腰痛・肩こり・むくみ・不眠など様々な不調が現れやすくなります。当院では妊婦の方への施術にも丁寧に対応しています。<br><br>
+          カウンセリングで妊娠週数・体調・お悩みを丁寧にお伺いし、そのときの状態に合った施術をご提案します。施術はうつ伏せを避けた安全な体位で行います。ご心配な点はどんな小さなことでもご相談ください。
+        </p>
+        <div class="license-row" style="margin-top:20px">
+          <span class="license-tag">国家資格保有スタッフが対応</span>
+          <span class="license-tag">うつ伏せなし（横向き対応）</span>
+          <span class="license-tag">カウンセリング無料</span>
+        </div>
+      </div>
+      <div data-reveal data-d="2">
+        <div class="mat-safe-box">
+          <span class="mat-safe-icon">🌿</span>
+          <p class="mat-safe-title">安心・安全のために</p>
+          <p class="mat-safe-text">
+            すべての施術は国家資格保有の院長・副院長が担当します。妊娠週数や体調に合わせて施術内容を調整し、無理のない範囲でサポートします。<br><br>
+            ご不安な点は事前にお電話でお気軽にご相談ください。
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- こんなお悩みに -->
+<section class="section section--warm">
+  <div class="wrap">
+    <div class="sec-head" data-reveal>
+      <span class="label">Symptoms</span>
+      <h2 class="heading" style="font-size:clamp(1.4rem,2.6vw,2rem);color:var(--c-ink);margin-top:12px">こんなお悩みに対応しています</h2>
+      <span class="divider"></span>
+    </div>
+    <div class="mat-symptom-grid" data-reveal>
+      <div class="mat-symptom-item">
+        <div class="mat-symptom-dot"></div>
+        <div>
+          <span class="mat-symptom-text">腰痛・背中の痛み</span>
+          <span class="mat-symptom-sub">お腹が大きくなるにつれて増える腰への負担</span>
+        </div>
+      </div>
+      <div class="mat-symptom-item">
+        <div class="mat-symptom-dot"></div>
+        <div>
+          <span class="mat-symptom-text">肩こり・首こり</span>
+          <span class="mat-symptom-sub">姿勢の変化によるこわばり</span>
+        </div>
+      </div>
+      <div class="mat-symptom-item">
+        <div class="mat-symptom-dot"></div>
+        <div>
+          <span class="mat-symptom-text">むくみ・冷え</span>
+          <span class="mat-symptom-sub">血液・リンパの循環が変化しやすい妊娠期</span>
+        </div>
+      </div>
+      <div class="mat-symptom-item">
+        <div class="mat-symptom-dot"></div>
+        <div>
+          <span class="mat-symptom-text">不眠・寝づらさ</span>
+          <span class="mat-symptom-sub">体位が限られ、眠れない夜のつらさ</span>
+        </div>
+      </div>
+      <div class="mat-symptom-item">
+        <div class="mat-symptom-dot"></div>
+        <div>
+          <span class="mat-symptom-text">恥骨痛・坐骨神経痛</span>
+          <span class="mat-symptom-sub">赤ちゃんの成長に伴う骨盤周りの痛み</span>
+        </div>
+      </div>
+      <div class="mat-symptom-item">
+        <div class="mat-symptom-dot"></div>
+        <div>
+          <span class="mat-symptom-text">産後の体力回復</span>
+          <span class="mat-symptom-sub">出産後の体のゆがみ・疲労回復をサポート</span>
+        </div>
+      </div>
+      <div class="mat-symptom-item">
+        <div class="mat-symptom-dot"></div>
+        <div>
+          <span class="mat-symptom-text">自律神経の乱れ</span>
+          <span class="mat-symptom-sub">ホルモンバランスの変化によるイライラ・不安感</span>
+        </div>
+      </div>
+      <div class="mat-symptom-item">
+        <div class="mat-symptom-dot"></div>
+        <div>
+          <span class="mat-symptom-text">足のつり・疲労感</span>
+          <span class="mat-symptom-sub">体重増加と血行変化によるだるさ</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 3つの安心ポイント -->
+<section class="section section--forest">
+  <div class="wrap">
+    <div class="sec-head sec-head--light center" data-reveal>
+      <span class="label label--light">Why Choose Us</span>
+      <h2 class="heading" style="font-size:clamp(1.4rem,2.6vw,2rem);color:#fff;margin-top:12px">はぎわら治療院が選ばれる理由</h2>
+      <span class="divider" style="margin:20px auto 0"></span>
+    </div>
+    <div class="mat-points-grid" data-reveal>
+      <div class="mat-point">
+        <span class="mat-point-num">01</span>
+        <span class="mat-point-title">国家資格保有の<br>専門スタッフ</span>
+        <p class="mat-point-desc">院長・副院長ともにはり師・きゅう師・あん摩マッサージ指圧師の国家資格保有者。医療知識に基づいた安心の施術を提供します。</p>
+      </div>
+      <div class="mat-point">
+        <span class="mat-point-num">02</span>
+        <span class="mat-point-title">丁寧な<br>カウンセリング</span>
+        <p class="mat-point-desc">初回は妊娠週数・体調・お悩みを詳しくお伺いします。一人ひとりの状態に合った施術内容を一緒に決めます。</p>
+      </div>
+      <div class="mat-point">
+        <span class="mat-point-num">03</span>
+        <span class="mat-point-title">女性スタッフ（副院長）<br>が対応</span>
+        <p class="mat-point-desc">副院長・萩原朝香が女性のデリケートなお悩みにも寄り添います。妊娠中・産後の不安も安心してご相談ください。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- スタッフメッセージ -->
+<section class="section section--cream">
+  <div class="wrap wrap--narrow">
+    <div class="sec-head center" data-reveal>
+      <span class="label">Staff Message</span>
+      <h2 class="heading" style="font-size:clamp(1.3rem,2.4vw,1.9rem);color:var(--c-ink);margin-top:12px">副院長より</h2>
+      <span class="divider" style="margin:20px auto 0"></span>
+    </div>
+    <div class="mat-staff-box" data-reveal>
+      <div class="mat-staff-photo">
+        <img src="images/hagiwara-asaka.jpg" alt="副院長 萩原朝香">
+      </div>
+      <div class="mat-staff-info">
+        <span class="mat-staff-role">Vice Director / 副院長</span>
+        <p class="mat-staff-name">萩原 朝香</p>
+        <p class="mat-staff-message">
+          妊娠中は体が大きく変化し、慣れない不調に戸惑う方も多いと思います。「施術を受けても大丈夫かな？」「どんな施術ができるの？」など、疑問や不安はなんでもお気軽にお話しください。<br><br>
+          あなたとお腹の赤ちゃん、そして産後のあなたを、丁寧にサポートできれば嬉しいです。
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- よくある質問 -->
+<section class="section section--warm">
+  <div class="wrap">
+    <div class="sec-head" data-reveal>
+      <span class="label">FAQ</span>
+      <h2 class="heading" style="font-size:clamp(1.4rem,2.6vw,2rem);color:var(--c-ink);margin-top:12px">よくあるご質問</h2>
+      <span class="divider"></span>
+    </div>
+    <div class="mat-faq-list" data-reveal>
+      <div class="mat-faq-item">
+        <div class="mat-faq-q" onclick="toggleFaq(this)">
+          <span class="mat-faq-q-mark">Q</span>
+          <span class="mat-faq-q-text">妊娠何週から施術を受けられますか？</span>
+          <span class="mat-faq-q-icon">▼</span>
+        </div>
+        <div class="mat-faq-a"><span class="mat-faq-a-mark">A</span>安定期（16週以降）以降を目安にしていますが、体調や症状によって異なります。まずはお電話でご相談ください。つわりが落ち着いた時期であれば、症状に応じて対応できる場合もあります。</div>
+      </div>
+      <div class="mat-faq-item">
+        <div class="mat-faq-q" onclick="toggleFaq(this)">
+          <span class="mat-faq-q-mark">Q</span>
+          <span class="mat-faq-q-text">鍼は赤ちゃんに影響しませんか？</span>
+          <span class="mat-faq-q-icon">▼</span>
+        </div>
+        <div class="mat-faq-a"><span class="mat-faq-a-mark">A</span>妊娠中は刺激の強いツボを避けるなど、安全に配慮した施術を行います。国家資格を持つスタッフが担当しますのでご安心ください。ご不安な場合は事前にご相談いただければ、鍼を使わない施術のみでの対応も可能です。</div>
+      </div>
+      <div class="mat-faq-item">
+        <div class="mat-faq-q" onclick="toggleFaq(this)">
+          <span class="mat-faq-q-mark">Q</span>
+          <span class="mat-faq-q-text">うつ伏せができませんが大丈夫ですか？</span>
+          <span class="mat-faq-q-icon">▼</span>
+        </div>
+        <div class="mat-faq-a"><span class="mat-faq-a-mark">A</span>はい、大丈夫です。妊婦の方は横向き（側臥位）や仰向けなど、お腹を圧迫しない体位で施術を行います。クッションなどを使って快適に施術が受けられるよう工夫しています。</div>
+      </div>
+      <div class="mat-faq-item">
+        <div class="mat-faq-q" onclick="toggleFaq(this)">
+          <span class="mat-faq-q-mark">Q</span>
+          <span class="mat-faq-q-text">産後はいつから通えますか？</span>
+          <span class="mat-faq-q-icon">▼</span>
+        </div>
+        <div class="mat-faq-a"><span class="mat-faq-a-mark">A</span>自然分娩の方は産後1ヶ月健診が終わり、体調が安定してからをおすすめしています。帝王切開の方は産後2ヶ月以降が目安です。産後の骨盤のゆがみ・腰痛・肩こりなどに対応しています。</div>
+      </div>
+      <div class="mat-faq-item">
+        <div class="mat-faq-q" onclick="toggleFaq(this)">
+          <span class="mat-faq-q-mark">Q</span>
+          <span class="mat-faq-q-text">赤ちゃんを連れて来院できますか？</span>
+          <span class="mat-faq-q-icon">▼</span>
+        </div>
+        <div class="mat-faq-a"><span class="mat-faq-a-mark">A</span>はい、ご来院いただけます。ただし施術中はお子様の安全のため、同伴の方がいらっしゃると安心です。ご事情はお気軽にご相談ください。できる限り対応いたします。</div>
+      </div>
+    </div>
+
+    <div class="caution-box" style="margin-top:28px" data-reveal>
+      <p class="caution-title">⚠️ ご来院前にご確認ください</p>
+      <p class="caution-text">
+        以下の場合は施術をお断りする場合があります。事前にかかりつけの産科医にご相談の上ご来院ください。<br>
+        ・切迫早産・切迫流産と診断されている方 ／ ・多胎妊娠（双子以上）の方 ／ ・前置胎盤と診断されている方<br>
+        ・主治医から安静を指示されている方 ／ ・体調に著しい変化がある方
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="section section--forest" style="padding:clamp(48px,7vw,80px) 0;text-align:center">
+  <div class="wrap">
+    <p class="label label--light" style="justify-content:center;margin-bottom:14px">Reservation</p>
+    <h2 class="heading" style="font-size:clamp(1.3rem,2.4vw,1.9rem);color:#fff;margin-bottom:16px">まずはお気軽にご相談ください</h2>
+    <p style="font-size:.84rem;font-weight:300;color:rgba(255,255,255,.55);margin-bottom:32px;line-height:2">
+      「こんなこと聞いてもいいのかな？」と思うことも大歓迎です。<br>
+      初回カウンセリング無料 ／ 予約優先
+    </p>
+    <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
+      <a class="btn btn-fill" href="tel:0455309072">📞 045-530-9072</a>
+      <a class="btn btn-ghost-w" href="menu.html">施術・料金を見る</a>
+    </div>
+  </div>
+</section>
+
+<!-- フッター -->
+<footer id="site-footer">
+  <div class="wrap">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <span class="label label--light" style="margin-bottom:14px">Hagiwara Clinic</span>
+        <p class="footer-name">はぎわら治療院</p>
+        <p class="footer-addr">〒227-0063 横浜市青葉区榎が丘2-1 ビンセプト 203号<br>青葉台駅西口 徒歩3分</p>
+      </div>
+      <div>
+        <p class="footer-col-title">Menu</p>
+        <div class="footer-links">
+          <a href="index.html">ホーム</a>
+          <a href="menu.html">施術・料金</a>
+          <a href="pilates.html">ピラティス</a>
+          <a href="access.html">アクセス</a>
+          <a href="maternity.html">妊娠中の方へ</a>
+        </div>
+      </div>
+      <div>
+        <p class="footer-col-title">Contact</p>
+        <a class="footer-tel" href="tel:0455309072">045-530-9072</a>
+        <p class="footer-hours">10:00 〜 20:00（最終受付）<br>定休日：水曜日｜予約優先</p>
+      </div>
+    </div>
+    <p class="footer-copy">© 2015 Hagiwara Clinic. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+const nav = document.getElementById('site-nav');
+window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 60), {passive:true});
+document.getElementById('burger').addEventListener('click', () => document.getElementById('nav-drawer').classList.add('open'));
+document.getElementById('drawer-close').addEventListener('click', () => document.getElementById('nav-drawer').classList.remove('open'));
+const ro = new IntersectionObserver(es => es.forEach(e => { if(e.isIntersecting){e.target.classList.add('on');ro.unobserve(e.target)} }), {threshold:.1});
+document.querySelectorAll('[data-reveal]').forEach(el => ro.observe(el));
+function toggleFaq(btn) {
+  const item = btn.closest('.mat-faq-item');
+  const wasOpen = item.classList.contains('open');
+  document.querySelectorAll('.mat-faq-item.open').forEach(i => i.classList.remove('open'));
+  if (!wasOpen) item.classList.add('open');
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>グランドオープンチラシ — はぎわら治療院</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@200;300;400;500;700&family=Noto+Sans+JP:wght@300;400;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+@page { size: A4 portrait; margin: 0; }
+@media print {
+  body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .no-print { display: none; }
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Noto Sans JP', sans-serif;
+  background: #b0a898;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 32px 16px 48px;
+}
+
+.poster {
+  width: 210mm;
+  min-height: 297mm;
+  background: #f5f0e8;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 32px 44px 32px;
+  box-shadow: 0 12px 60px rgba(0,0,0,.25);
+}
+
+.poster::after {
+  content: '';
+  position: absolute;
+  inset: 11px;
+  border: 1.5px solid #b89040;
+  pointer-events: none;
+}
+
+/* ─── HEADER ─── */
+.logo-wrap {
+  margin-bottom: 16px;
+}
+.logo-wrap img {
+  width: 360px;
+  height: auto;
+}
+
+.clinic-name {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 13pt;
+  font-weight: 400;
+  color: #5a4a38;
+  letter-spacing: .22em;
+  text-align: center;
+  margin-bottom: 18px;
+}
+
+.divider {
+  width: 88%;
+  height: 1.5px;
+  background: linear-gradient(to right, transparent, #b89040, transparent);
+  margin-bottom: 18px;
+}
+
+/* ─── GRAND OPEN BLOCK ─── */
+.open-block {
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.open-label {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 11pt;
+  letter-spacing: .38em;
+  text-transform: uppercase;
+  color: #a87e42;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.open-date-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 4px;
+  line-height: 1;
+}
+
+.open-month {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 80pt;
+  font-weight: 700;
+  color: #1a2d4a;
+  letter-spacing: .02em;
+}
+.open-month em {
+  font-style: normal;
+  color: #a87e42;
+}
+
+.open-timing {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 36pt;
+  font-weight: 700;
+  color: #1a2d4a;
+  letter-spacing: .14em;
+  display: block;
+  margin-top: 6px;
+}
+
+/* ─── TAGLINE ─── */
+.tagline-block {
+  text-align: center;
+  margin-bottom: 18px;
+}
+
+.tagline-main {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 17pt;
+  font-weight: 300;
+  color: #1a2d4a;
+  letter-spacing: .1em;
+  line-height: 1.7;
+}
+.tagline-main em {
+  font-style: normal;
+  color: #a87e42;
+}
+
+.tagline-sub {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 9pt;
+  font-weight: 300;
+  color: #7a6a58;
+  letter-spacing: .08em;
+  margin-top: 6px;
+}
+
+/* ─── SERVICES ─── */
+.svc-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  width: 100%;
+  margin-bottom: 18px;
+}
+
+.svc-card {
+  background: #fff;
+  border: 1px solid rgba(184,144,64,.25);
+  border-radius: 5px;
+  padding: 14px 12px 12px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.svc-en {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 8pt;
+  letter-spacing: .28em;
+  text-transform: uppercase;
+  color: #a87e42;
+}
+
+.svc-name {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 11pt;
+  font-weight: 500;
+  color: #1a2d4a;
+  letter-spacing: .06em;
+}
+
+.svc-desc {
+  font-size: 7.5pt;
+  font-weight: 300;
+  color: #7a6a58;
+  line-height: 1.8;
+  letter-spacing: .04em;
+}
+
+/* ─── FIRST VISIT ─── */
+.price-section {
+  width: 100%;
+  margin-bottom: 18px;
+}
+
+.price-head {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.price-head-line {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(to right, #b89040, transparent);
+}
+.price-head-line.rev {
+  background: linear-gradient(to left, #b89040, transparent);
+}
+
+.price-head-title {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 10pt;
+  font-weight: 400;
+  color: #1a2d4a;
+  letter-spacing: .14em;
+  white-space: nowrap;
+}
+
+.price-head-en {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 7.5pt;
+  letter-spacing: .3em;
+  text-transform: uppercase;
+  color: #a87e42;
+  text-align: center;
+  display: block;
+  margin-bottom: 2px;
+}
+
+.price-note {
+  font-size: 7pt;
+  font-weight: 300;
+  color: #a87e42;
+  letter-spacing: .06em;
+  text-align: center;
+  margin-bottom: 8px;
+}
+
+.price-rows {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  background: #fff;
+  border: 1px solid rgba(184,144,64,.2);
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.price-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 9px 16px;
+  border-bottom: 1px solid rgba(184,144,64,.1);
+  gap: 10px;
+}
+.price-row:last-child { border-bottom: none; }
+
+.price-row-left {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.price-row-name {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 9.5pt;
+  font-weight: 400;
+  color: #1a2d4a;
+  letter-spacing: .05em;
+}
+
+.price-row-desc {
+  font-size: 7pt;
+  font-weight: 300;
+  color: #7a6a58;
+  letter-spacing: .04em;
+  line-height: 1.6;
+}
+
+.price-row-right {
+  text-align: right;
+  flex-shrink: 0;
+}
+
+.price-val {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 16pt;
+  font-weight: 600;
+  color: #a87e42;
+  letter-spacing: .02em;
+  line-height: 1;
+}
+
+.price-yen {
+  font-family: 'Noto Sans JP', sans-serif;
+  font-size: 7pt;
+  font-weight: 300;
+  color: #9a8a78;
+  margin-left: 1px;
+}
+
+.price-tax {
+  font-size: 6.5pt;
+  color: #9a8a78;
+  font-weight: 300;
+  margin-top: 1px;
+}
+
+/* ─── INFO ─── */
+.info-section {
+  width: 100%;
+  background: #1a2d4a;
+  border-radius: 5px;
+  padding: 16px 22px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px 24px;
+  margin-bottom: 14px;
+}
+
+.info-block {}
+
+.info-label {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 7.5pt;
+  letter-spacing: .3em;
+  text-transform: uppercase;
+  color: #b89040;
+  display: block;
+  margin-bottom: 3px;
+}
+
+.info-value {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 8.5pt;
+  font-weight: 300;
+  color: rgba(255,255,255,.88);
+  line-height: 1.9;
+  letter-spacing: .05em;
+}
+
+.info-tel {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 17pt;
+  font-weight: 600;
+  color: #fff;
+  letter-spacing: .06em;
+}
+
+/* ─── FOOTER ─── */
+.footer-note {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 7.5pt;
+  font-weight: 300;
+  color: #7a6a58;
+  letter-spacing: .1em;
+  text-align: center;
+  line-height: 2;
+}
+
+.print-btn {
+  margin-top: 28px;
+  padding: 13px 40px;
+  background: #1a2d4a;
+  color: #fff;
+  font-family: 'Noto Sans JP', sans-serif;
+  font-size: 14px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  letter-spacing: .1em;
+  transition: background .2s;
+}
+.print-btn:hover { background: #2a4a70; }
+</style>
+</head>
+<body>
+
+<div class="poster">
+
+  <!-- ロゴ -->
+  <div class="logo-wrap">
+    <img src="images/決定稿背景なしふちなし.png" alt="はぎわら治療院">
+  </div>
+
+  <p class="clinic-name">は ぎ わ ら 治 療 院</p>
+
+  <div class="divider"></div>
+
+  <!-- グランドオープン -->
+  <div class="open-block">
+    <span class="open-label">Grand Open</span>
+    <div class="open-date-row">
+      <span class="open-month">２０２６年<em>６月</em>下旬</span>
+    </div>
+    <span class="open-timing">グランドオープン</span>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- タグライン -->
+  <div class="tagline-block">
+    <p class="tagline-main">職人の手が、からだの<em>本質</em>へ届く。</p>
+    <p class="tagline-sub">指圧・鍼灸・マッサージ・ピラティス。それぞれの深みを追求する施術者が、あなたの回復を丁寧に支えます。</p>
+  </div>
+
+  <!-- サービス -->
+  <div class="svc-grid">
+    <div class="svc-card">
+      <span class="svc-en">Acupuncture &amp; Shiatsu</span>
+      <p class="svc-name">鍼灸・指圧<br>マッサージ</p>
+      <p class="svc-desc">職人の技で全身を丁寧に整え、<br>心身の本質的な回復へ。</p>
+    </div>
+    <div class="svc-card">
+      <span class="svc-en">Beauty Acupuncture</span>
+      <p class="svc-name">美容鍼灸<br>・顔鍼</p>
+      <p class="svc-desc">繊細な鍼で表情筋を緩め、<br>小顔・コラーゲン生成効果。</p>
+    </div>
+    <div class="svc-card">
+      <span class="svc-en">Medical Pilates</span>
+      <p class="svc-name">ASAKA<br>メディカルピラティス</p>
+      <p class="svc-desc">ピラティスマシン完備。<br>完全プライベートスペース。</p>
+    </div>
+  </div>
+
+  <!-- ご新規初回コース -->
+  <div class="price-section">
+    <span class="price-head-en">First Visit Special</span>
+    <div class="price-head">
+      <div class="price-head-line"></div>
+      <span class="price-head-title">ご新規初回コース</span>
+      <div class="price-head-line rev"></div>
+    </div>
+    <p class="price-note">初回1回限り・税込価格</p>
+    <div class="price-rows">
+      <div class="price-row">
+        <div class="price-row-left">
+          <span class="price-row-name">鍼灸指圧　60分</span>
+          <span class="price-row-desc">全身まんべんなく整えたい方に</span>
+        </div>
+        <div class="price-row-right">
+          <span class="price-val">6,950<span class="price-yen">円</span></span>
+        </div>
+      </div>
+      <div class="price-row">
+        <div class="price-row-left">
+          <span class="price-row-name">鍼灸指圧　90分　<span style="font-size:7pt;color:#a87e42;border:1px solid rgba(168,126,66,.4);padding:1px 7px;letter-spacing:.04em">人気 No.1</span></span>
+          <span class="price-row-desc">症状改善と全身しっかり整えたい方に一番お勧めです！</span>
+        </div>
+        <div class="price-row-right">
+          <span class="price-val">9,950<span class="price-yen">円</span></span>
+        </div>
+      </div>
+      <div class="price-row">
+        <div class="price-row-left">
+          <span class="price-row-name">自律神経調整　75分</span>
+          <span class="price-row-desc">なんとなく調子が悪い、全身の機能を回復させたい方に</span>
+        </div>
+        <div class="price-row-right">
+          <span class="price-val">8,650<span class="price-yen">円</span></span>
+        </div>
+      </div>
+      <div class="price-row">
+        <div class="price-row-left">
+          <span class="price-row-name">60分 ＋ 眼精疲労</span>
+          <span class="price-row-desc">眼の奥の重さや痛み、頭の重さのある方へ</span>
+        </div>
+        <div class="price-row-right">
+          <span class="price-val">9,700<span class="price-yen">円</span></span>
+        </div>
+      </div>
+      <div class="price-row">
+        <div class="price-row-left">
+          <span class="price-row-name">30分 ＋ 美容鍼灸</span>
+          <span class="price-row-desc">小顔効果・顔頭の血流改善・脳もすっきり</span>
+        </div>
+        <div class="price-row-right">
+          <span class="price-val">9,950<span class="price-yen">円</span></span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 院内情報 -->
+  <div class="info-section">
+    <div class="info-block">
+      <span class="info-label">Location</span>
+      <p class="info-value">
+        〒227-0063<br>
+        横浜市青葉区榎が丘2-1<br>
+        ビンセプト 203号（治療院・2F）<br>
+        301号（ASAKAピラティス・3F）
+      </p>
+    </div>
+    <div class="info-block">
+      <span class="info-label">Hours</span>
+      <p class="info-value">
+        10:00 〜 20:00（最終受付）<br>
+        定休日：水曜<br>（臨時休業あり）
+      </p>
+      <div style="margin-top:10px">
+        <span class="info-label">Tel</span>
+        <p class="info-tel">045-530-9072</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- フッター -->
+  <p class="footer-note">
+    ご予約・お問い合わせは お電話 または LINE にて承っております<br>
+    LINE ID：@hagiwara-clinic　✦　X（旧Twitter）@hagiwara2015
+  </p>
+
+</div>
+
+<button class="print-btn no-print" onclick="window.print()">🖨 印刷する（A4）</button>
+
+</body>
+</html>

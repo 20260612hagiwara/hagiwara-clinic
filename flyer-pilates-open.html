@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>グランドオープンチラシ — ASAKA Medical Pilates Studio</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@200;300;400;500;700&family=Noto+Sans+JP:wght@300;400;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+@page { size: A4 portrait; margin: 0; }
+@media print {
+  body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .no-print { display: none; }
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Noto Sans JP', sans-serif;
+  background: #b0a898;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 32px 16px 48px;
+}
+
+/* ─── POSTER SHELL ─── */
+.poster {
+  width: 210mm;
+  min-height: 297mm;
+  background: #f5f0e8;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 12px 60px rgba(0,0,0,.28);
+  overflow: hidden;
+}
+.poster::after {
+  content: '';
+  position: absolute;
+  inset: 10px;
+  border: 1.5px solid rgba(184,144,64,.55);
+  pointer-events: none;
+  z-index: 10;
+}
+
+/* ─── TOP HERO (dark) ─── */
+.hero {
+  background: linear-gradient(150deg, #1e2e3c 0%, #162a22 55%, #2c1830 100%);
+  padding: 24px 44px 0;
+  position: relative;
+  overflow: hidden;
+}
+.hero-studio-title {
+  position: absolute;
+  top: 20mm;
+  right: 44px;
+  z-index: 3;
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 19pt;
+  letter-spacing: .12em;
+  color: #f0dfc4;
+  white-space: nowrap;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 60% 70% at 68% 50%, rgba(168,126,66,.18) 0%, transparent 70%);
+}
+.hero-inner {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: stretch;
+  justify-content: space-between;
+  gap: 16px;
+}
+.hero-left {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding-bottom: 20px;
+}
+.hero-right {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 12px;
+}
+
+/* ASAKAロゴ */
+.hero-logo {
+  width: 200px;
+  height: auto;
+  margin-bottom: 14px;
+  filter: brightness(1.05);
+}
+
+.open-badge {
+  display: inline-block;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 7.5pt;
+  letter-spacing: .32em;
+  text-transform: uppercase;
+  color: #c89e54;
+  border: 1px solid rgba(200,160,80,.35);
+  padding: 4px 14px;
+  margin-bottom: 10px;
+  align-self: flex-start;
+}
+.hero-catch {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 9pt;
+  font-weight: 300;
+  color: rgba(255,255,255,.65);
+  line-height: 2.1;
+  letter-spacing: .05em;
+}
+
+/* 開院日 */
+.open-date-block {
+  text-align: right;
+  padding-top: 4px;
+}
+.open-year {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 9pt;
+  font-weight: 300;
+  color: rgba(255,255,255,.5);
+  letter-spacing: .08em;
+  display: block;
+}
+.open-month {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 46pt;
+  font-weight: 700;
+  color: #fff;
+  line-height: 1;
+  display: block;
+}
+.open-month em { font-style: normal; color: #c89e54; }
+.open-timing {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 14pt;
+  font-weight: 700;
+  color: #c89e54;
+  letter-spacing: .18em;
+  display: block;
+  margin-top: 3px;
+}
+
+/* 萩原朝香写真（円形） */
+.hero-photo-wrap {
+  width: 175px;
+  height: 175px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 3px solid #f0dfc4;
+  flex-shrink: 0;
+  align-self: center;
+  margin-top: 25mm;
+  margin-bottom: 12px;
+}
+.hero-photo-wrap img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: 50% 60%;
+  filter: brightness(.92) saturate(.85);
+}
+
+/* ─── INSTRUCTOR STRIP ─── */
+.instructor-strip {
+  background: rgba(0,0,0,.55);
+  border-top: 1px solid rgba(200,160,80,.35);
+  border-bottom: 1px solid rgba(200,160,80,.2);
+  padding: 11px 44px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  position: relative;
+  z-index: 2;
+  flex-wrap: wrap;
+}
+.instructor-label {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 9pt;
+  letter-spacing: .28em;
+  text-transform: uppercase;
+  color: #dcc07a;
+  white-space: nowrap;
+}
+.instructor-sep {
+  width: 1px;
+  height: 16px;
+  background: rgba(200,160,80,.5);
+}
+.instructor-name {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 11pt;
+  font-weight: 400;
+  color: #fff;
+  letter-spacing: .1em;
+}
+.license-tags {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin-left: auto;
+}
+.license-tag {
+  font-size: 7.5pt;
+  font-weight: 300;
+  color: #f0dfc4;
+  border: 1px solid rgba(200,160,80,.5);
+  background: rgba(200,160,80,.1);
+  padding: 3px 9px;
+  letter-spacing: .04em;
+}
+
+/* ─── BODY ─── */
+.body-wrap {
+  flex: 1;
+  padding: 16px 44px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* ─── SECTION LABEL ─── */
+.sec-label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 9px;
+}
+.sec-label-en {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 7.5pt;
+  letter-spacing: .32em;
+  text-transform: uppercase;
+  color: #a87e42;
+  white-space: nowrap;
+}
+.sec-label-line {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(to right, rgba(184,144,64,.4), transparent);
+}
+.sec-label-ja {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 10pt;
+  font-weight: 400;
+  color: #1a2d4a;
+  letter-spacing: .1em;
+  white-space: nowrap;
+}
+
+/* ─── FEATURES ─── */
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 7px;
+}
+.feature-card {
+  background: #fff;
+  border-radius: 4px;
+  padding: 10px 9px 9px;
+  border-top: 2.5px solid #2a4a3a;
+  text-align: center;
+}
+.feature-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 9pt;
+  color: #a87e42;
+  letter-spacing: .16em;
+  display: block;
+  margin-bottom: 3px;
+}
+.feature-title {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 7.5pt;
+  font-weight: 500;
+  color: #1a2d4a;
+  letter-spacing: .04em;
+  margin-bottom: 4px;
+  line-height: 1.4;
+}
+.feature-desc {
+  font-size: 6.5pt;
+  font-weight: 300;
+  color: #7a6a58;
+  line-height: 1.8;
+}
+
+/* ─── COURSES ─── */
+.courses-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 7px;
+}
+.course-card {
+  background: #fff;
+  border-radius: 4px;
+  overflow: hidden;
+  border: 1px solid rgba(184,144,64,.15);
+}
+.course-head {
+  padding: 7px 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+.course-head--1 { background: linear-gradient(135deg,#2a4a3a,#1e2820); }
+.course-head--2 { background: linear-gradient(135deg,#2a3c4a,#1e2030); }
+.course-head--3 { background: linear-gradient(135deg,#4a3a20,#2c2010); }
+.course-head--4 { background: linear-gradient(135deg,#3a2a3c,#2c2820); }
+.course-name {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 8.5pt;
+  font-weight: 400;
+  color: #fff;
+  letter-spacing: .04em;
+}
+.course-badge {
+  font-size: 6pt;
+  color: #dcc07a;
+  border: 1px solid rgba(220,192,122,.4);
+  padding: 2px 7px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.course-body { padding: 7px 12px 8px; }
+.course-desc {
+  font-size: 7pt;
+  font-weight: 300;
+  color: #5a4a38;
+  line-height: 1.9;
+}
+
+/* ─── PRICING ─── */
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 7px;
+}
+.price-card {
+  border-radius: 4px;
+  overflow: hidden;
+  border: 1px solid rgba(184,144,64,.2);
+}
+.price-card-head { padding: 8px 14px; text-align: center; }
+.price-card-head--trial { background: linear-gradient(135deg,#1a3a2a,#2a3020); }
+.price-card-head--6     { background: linear-gradient(135deg,#2a3040,#1e2830); }
+.price-card-head--10    { background: linear-gradient(135deg,#3a2a20,#2c1e10); }
+.price-plan-badge {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 7pt;
+  letter-spacing: .28em;
+  text-transform: uppercase;
+  color: rgba(200,160,80,.8);
+  display: block;
+  margin-bottom: 2px;
+}
+.price-plan-name {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 9pt;
+  font-weight: 400;
+  color: #fff;
+  letter-spacing: .06em;
+}
+.price-card-body {
+  background: #fff;
+  padding: 9px 14px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+.price-mins { font-size: 7pt; font-weight: 300; color: #7a6a58; letter-spacing: .06em; }
+.price-val {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 21pt;
+  font-weight: 600;
+  color: #a87e42;
+  line-height: 1;
+}
+.price-val small {
+  font-family: 'Noto Sans JP', sans-serif;
+  font-size: 7pt;
+  font-weight: 300;
+  color: #9a8a78;
+}
+.price-cash { font-size: 6.5pt; color: #a87e42; letter-spacing: .04em; }
+.price-note-small {
+  font-size: 6.5pt;
+  font-weight: 300;
+  color: #9a8a78;
+  text-align: center;
+  line-height: 1.8;
+  padding: 0 4px;
+}
+
+/* ─── CLINIC CONNECTION ─── */
+.clinic-link {
+  background: linear-gradient(135deg, #1a2d4a 0%, #162540 100%);
+  border-radius: 5px;
+  padding: 12px 18px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.clinic-link-icon {
+  flex-shrink: 0;
+  width: 34px; height: 34px;
+  border: 1px solid rgba(184,144,64,.4);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 13pt;
+  color: #c89e54;
+}
+.clinic-link-text { flex: 1; }
+.clinic-link-label {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 7pt;
+  letter-spacing: .3em;
+  text-transform: uppercase;
+  color: rgba(200,160,80,.7);
+  display: block;
+  margin-bottom: 3px;
+}
+.clinic-link-body {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 8.5pt;
+  font-weight: 300;
+  color: rgba(255,255,255,.82);
+  line-height: 1.9;
+  letter-spacing: .04em;
+}
+.clinic-link-body strong { color: #c89e54; font-weight: 400; }
+.clinic-link-flow {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+.flow-step {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 7.5pt;
+  font-weight: 300;
+  color: rgba(255,255,255,.75);
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(255,255,255,.12);
+  border-radius: 3px;
+  padding: 3px 10px;
+  white-space: nowrap;
+}
+.flow-arrow { font-size: 8pt; color: #c89e54; opacity: .7; }
+
+/* ─── INFO FOOTER ─── */
+.info-footer {
+  background: linear-gradient(135deg, #2a1a0a 0%, #1e1206 100%);
+  padding: 13px 44px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  border-top: 2px solid rgba(184,144,64,.25);
+}
+.info-block {}
+.info-label {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 6.5pt;
+  letter-spacing: .3em;
+  text-transform: uppercase;
+  color: #c89e54;
+  display: block;
+  margin-bottom: 2px;
+}
+.info-value {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 7.5pt;
+  font-weight: 300;
+  color: rgba(255,255,255,.78);
+  line-height: 1.9;
+  letter-spacing: .04em;
+}
+.info-tel {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 16pt;
+  font-weight: 600;
+  color: #fff;
+  letter-spacing: .06em;
+  line-height: 1;
+}
+.info-sep {
+  width: 1px;
+  height: 34px;
+  background: rgba(184,144,64,.2);
+}
+</style>
+</head>
+<body>
+
+<div class="poster">
+
+  <!-- ─── HERO ─── -->
+  <div class="hero">
+    <p class="hero-studio-title">ASAKA Medical Pilates Studio</p>
+    <div class="hero-inner">
+
+      <!-- 左：ロゴ＋キャッチ -->
+      <div class="hero-left">
+        <img class="hero-logo" src="images/logo-asaka-2026.png" alt="ASAKA Medical Pilates Studio">
+        <span class="open-badge">Grand Open — 2026</span>
+        <p class="hero-catch">
+          施術で整えた体を、ピラティスでキープする。<br>
+          治療の効果を、日常の動きへ。<br>
+          からだの変化を、ずっと続けるために。
+        </p>
+      </div>
+
+      <!-- 中央：開院日 -->
+      <div style="flex-shrink:0;display:flex;flex-direction:column;align-items:flex-end;justify-content:flex-end;padding-bottom:20px">
+        <div class="open-date-block">
+          <span class="open-year">２０２６年</span>
+          <span class="open-month"><em>６月</em>下旬</span>
+          <span class="open-timing">GRAND OPEN</span>
+        </div>
+      </div>
+
+      <!-- 右：萩原朝香の写真 -->
+      <div class="hero-photo-wrap">
+        <img src="images/asaka-pilates.png" alt="副院長 萩原朝香">
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ─── INSTRUCTOR STRIP ─── -->
+  <div class="instructor-strip">
+    <span class="instructor-label">Instructor</span>
+    <div class="instructor-sep"></div>
+    <span class="instructor-name">副院長　萩原 朝香</span>
+    <div class="license-tags">
+      <span class="license-tag">BASiマットピラティス認定</span>
+      <span class="license-tag">BASiメディカルコース修了</span>
+      <span class="license-tag">はり師・きゅう師・あん摩マッサージ師</span>
+      <span class="license-tag">あいうべ体操指導者</span>
+    </div>
+  </div>
+
+  <!-- ─── BODY ─── -->
+  <div class="body-wrap">
+
+    <!-- キャッチコピー -->
+    <div style="text-align:center;padding:10px 0 4px">
+      <p style="font-family:'Noto Serif JP',serif;font-size:13.5pt;font-weight:400;color:#1a2d4a;letter-spacing:.1em;line-height:1.9">
+        マシンとマットで、<br>重力の中での体の使い方を学ぶ。<br>施術で整えた体を、動ける体へ。
+      </p>
+      <div style="width:48px;height:1.5px;background:linear-gradient(to right,transparent,#b89040,transparent);margin:10px auto"></div>
+      <p style="font-family:'Noto Serif JP',serif;font-size:8.5pt;font-weight:300;color:#5a4a38;letter-spacing:.08em;line-height:2.1;margin-top:4px">
+        マシンとマット、両方のレッスンで「正しい動き」を体に定着させます。<br>治療の効果を、日常のすべての動きへ。
+      </p>
+    </div>
+
+    <!-- ピラティスで得られること -->
+    <div>
+      <div class="sec-label">
+        <span class="sec-label-en">Benefits</span>
+        <div class="sec-label-line"></div>
+        <span class="sec-label-ja">ピラティスで得られること</span>
+      </div>
+      <div class="features-grid">
+        <div class="feature-card">
+          <span class="feature-num">01</span>
+          <p class="feature-title">治療効果が<br>長続きする</p>
+          <p class="feature-desc">整えた体を動かして定着。施術の効果が抜けにくくなります。</p>
+        </div>
+        <div class="feature-card">
+          <span class="feature-num">02</span>
+          <p class="feature-title">姿勢・体幹が<br>整う</p>
+          <p class="feature-desc">インナーマッスルを鍛え、正しい姿勢を自然にキープ。</p>
+        </div>
+        <div class="feature-card">
+          <span class="feature-num">03</span>
+          <p class="feature-title">日常動作が<br>スムーズに</p>
+          <p class="feature-desc">歩く・立つ・曲げるなど、日々の動きが軽やかになります。</p>
+        </div>
+        <div class="feature-card">
+          <span class="feature-num">04</span>
+          <p class="feature-title">再発・不調を<br>予防する</p>
+          <p class="feature-desc">体の使い方を学び、同じ場所を繰り返し痛めにくくなります。</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- コース -->
+    <div>
+      <div class="sec-label">
+        <span class="sec-label-en">Courses</span>
+        <div class="sec-label-line"></div>
+        <span class="sec-label-ja">選べる４つのコース　— すべて完全プライベートレッスン</span>
+      </div>
+      <div class="courses-grid">
+        <div class="course-card">
+          <div class="course-head course-head--1">
+            <span class="course-name">Aコース　のびのびほぐし</span>
+            <span class="course-badge">初めての方に</span>
+          </div>
+          <div class="course-body">
+            <p class="course-desc">ボール・ポール・バンドを使ったやさしい入門コース。体に不安のある方でも安心。</p>
+          </div>
+        </div>
+        <div class="course-card">
+          <div class="course-head course-head--2">
+            <span class="course-name">Bコース　基本ピラティス</span>
+            <span class="course-badge">整えたい方に</span>
+          </div>
+          <div class="course-body">
+            <p class="course-desc">呼吸・体幹・姿勢の意識を丁寧に。自律神経を整え、心身ともに「整う」感覚を育てます。</p>
+          </div>
+        </div>
+        <div class="course-card">
+          <div class="course-head course-head--3">
+            <span class="course-name">Cコース　機能改善ピラティス</span>
+            <span class="course-badge">もっと動ける体へ</span>
+          </div>
+          <div class="course-body">
+            <p class="course-desc">体幹強化・可動域改善・日常動作の質向上。施術でよくなった体をさらに動ける体へ。</p>
+          </div>
+        </div>
+        <div class="course-card">
+          <div class="course-head course-head--4">
+            <span class="course-name">Dコース　施術 ＋ ピラティス</span>
+            <span class="course-badge">おすすめ</span>
+          </div>
+          <div class="course-body">
+            <p class="course-desc">施術とピラティスを同日に組み合わせる。治療×動きの相乗効果で変化を実感できます。<br>（施術の希望コース＋ピラティス50分）</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 料金 -->
+    <div>
+      <div class="sec-label">
+        <span class="sec-label-en">Pricing</span>
+        <div class="sec-label-line"></div>
+        <span class="sec-label-ja">料金　— すべて50分・税込（Dコース除く）</span>
+      </div>
+      <div class="pricing-grid">
+        <div class="price-card">
+          <div class="price-card-head price-card-head--trial">
+            <span class="price-plan-badge">Trial</span>
+            <p class="price-plan-name">お試し体験</p>
+          </div>
+          <div class="price-card-body">
+            <span class="price-mins">50分　／　初回・2回目まで</span>
+            <span class="price-val">6,500<small>円</small></span>
+            <span class="price-note-small">3回目以降は回数券をご購入ください</span>
+          </div>
+        </div>
+        <div class="price-card">
+          <div class="price-card-head price-card-head--6">
+            <span class="price-plan-badge">6 Sessions</span>
+            <p class="price-plan-name">6回回数券</p>
+          </div>
+          <div class="price-card-body">
+            <span class="price-mins">有効期限 ６ヶ月</span>
+            <span class="price-val">42,550<small>円</small></span>
+            <span class="price-cash">現金価格 41,200円</span>
+          </div>
+        </div>
+        <div class="price-card">
+          <div class="price-card-head price-card-head--10">
+            <span class="price-plan-badge">10 Sessions</span>
+            <p class="price-plan-name">10回回数券</p>
+          </div>
+          <div class="price-card-body">
+            <span class="price-mins">有効期限 １年</span>
+            <span class="price-val">70,000<small>円</small></span>
+            <span class="price-cash">現金価格 67,800円</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- はぎわら治療院との導線（10%） -->
+    <div class="clinic-link">
+      <div class="clinic-link-icon">✦</div>
+      <div class="clinic-link-text">
+        <span class="clinic-link-label">Clinic Connection</span>
+        <p class="clinic-link-body">
+          同じビルの<strong>はぎわら治療院（2F）</strong>と組み合わせることで、さらに高い効果が期待できます。<br>
+          施術でほぐした体をそのままピラティスへ。順番はどちらからでも対応いたします。
+        </p>
+      </div>
+      <div class="clinic-link-flow">
+        <span class="flow-step">施術（2F）</span>
+        <span class="flow-arrow">↕</span>
+        <span class="flow-step">ピラティス（3F）</span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ─── FOOTER INFO ─── -->
+  <div class="info-footer">
+    <div class="info-block">
+      <span class="info-label">Location</span>
+      <p class="info-value">
+        〒227-0063　横浜市青葉区榎が丘2-1 ビンセプト 301号<br>
+        青葉台駅西口 徒歩3分　／　ピラティス専用スペース（3F）
+      </p>
+    </div>
+    <div class="info-sep"></div>
+    <div class="info-block">
+      <span class="info-label">Hours</span>
+      <p class="info-value">10:00 〜 20:00（最終受付）<br>定休日：水曜</p>
+    </div>
+    <div class="info-sep"></div>
+    <div class="info-block">
+      <span class="info-label">Tel</span>
+      <p class="info-tel">045-530-9072</p>
+      <p class="info-value" style="margin-top:2px">LINE・お電話にてご予約</p>
+    </div>
+  </div>
+
+</div>
+
+<button class="no-print" onclick="window.print()" style="margin-top:28px;padding:13px 40px;background:#1a2d4a;color:#fff;font-family:'Noto Sans JP',sans-serif;font-size:14px;border:none;border-radius:4px;cursor:pointer;letter-spacing:.1em">🖨 印刷する（A4）</button>
+
+</body>
+</html>

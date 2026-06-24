@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>院内ポスター — ピラティスのご案内</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@200;300;400;500&family=Noto+Sans+JP:wght@300;400;500&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+<style>
+@page { size: A4 portrait; margin: 0; }
+@media print {
+  body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .no-print { display: none; }
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Noto Sans JP', sans-serif;
+  background: #e8e4de;
+  display: flex; flex-direction: column;
+  align-items: center; padding: 24px 16px 40px;
+}
+
+.poster {
+  width: 210mm; min-height: 297mm;
+  background: #f5f0e8;
+  box-shadow: 0 8px 40px rgba(0,0,0,.2);
+  display: flex; flex-direction: column; overflow: hidden;
+}
+
+/* ── ヘッダー ── */
+.poster-header {
+  background: linear-gradient(135deg, #1e3d32 0%, #2e4e42 55%, #3a3020 100%);
+  padding: 30px 36px 26px; position: relative; overflow: hidden;
+}
+.poster-header::before {
+  content: ''; position: absolute; top: -40px; right: -40px;
+  width: 220px; height: 220px; border-radius: 50%;
+  background: rgba(168,126,66,.1);
+}
+.header-top {
+  display: flex; align-items: center;
+  justify-content: space-between;
+  margin-bottom: 18px; position: relative; z-index: 2;
+}
+.clinic-name {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 10.5pt; font-weight: 300;
+  color: rgba(255,255,255,.6); letter-spacing: .08em;
+}
+.logo-area img { height: 44px; object-fit: contain; }
+.logo-fallback {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 15pt; color: #c8a054; letter-spacing: .15em;
+}
+.header-main { position: relative; z-index: 2; }
+.header-label {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 8pt; letter-spacing: .3em; text-transform: uppercase;
+  color: #c8a054; display: block; margin-bottom: 10px;
+}
+.header-title {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 27pt; font-weight: 400;
+  color: #fff; line-height: 1.5; margin-bottom: 10px;
+}
+.header-title em { font-style: normal; color: #dcc07a; }
+.header-sub {
+  font-size: 10pt; font-weight: 300;
+  color: rgba(255,255,255,.6); line-height: 1.8; letter-spacing: .04em;
+}
+
+/* ── ボディ ── */
+.poster-body {
+  flex: 1; padding: 28px 36px 22px;
+  display: flex; flex-direction: column; gap: 24px;
+}
+
+/* ── フロー ── */
+.flow-section {
+  background: linear-gradient(135deg, #2a4a3c, #3a3020);
+  border-radius: 10px; padding: 22px 24px;
+}
+.flow-label {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 7.5pt; letter-spacing: .3em; text-transform: uppercase;
+  color: #c8a054; display: block; margin-bottom: 16px;
+}
+.flow-steps { display: flex; align-items: stretch; }
+.flow-step { flex: 1; text-align: center; }
+.flow-step-box {
+  background: rgba(255,255,255,.08);
+  border: 1px solid rgba(255,255,255,.15);
+  border-radius: 8px; padding: 16px 8px 14px;
+  height: 100%;
+}
+.flow-num {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 30px; height: 30px; border-radius: 50%;
+  border: 1.5px solid #c8a054; color: #c8a054;
+  font-family: 'Cormorant Garamond', serif; font-size: 14pt;
+  margin-bottom: 10px;
+}
+.flow-step-name {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 12pt; font-weight: 400;
+  color: #fff; display: block; margin-bottom: 4px;
+}
+.flow-step-en {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic; font-size: 7.5pt; color: #c8a054; display: block;
+}
+.flow-arrow {
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  padding: 0 8px; flex-shrink: 0;
+}
+.flow-arrow-sym { font-size: 22pt; color: #c8a054; opacity: .8; }
+.flow-note {
+  margin-top: 14px;
+  background: rgba(168,126,66,.12);
+  border-left: 2px solid #c8a054;
+  padding: 9px 14px;
+  font-size: 9pt; font-weight: 300;
+  color: rgba(255,255,255,.75); line-height: 2; letter-spacing: .03em;
+}
+
+/* ── セクションタイトル ── */
+.section-title {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 13.5pt; font-weight: 400;
+  color: #2a2018; margin-bottom: 14px;
+  padding-bottom: 8px;
+  border-bottom: 1.5px solid #c8a054;
+  display: flex; align-items: center; gap: 10px;
+}
+.section-title::before {
+  content: '';
+  display: block; width: 4px; height: 20px;
+  background: linear-gradient(to bottom, #2a4a3c, #a87e42);
+  border-radius: 2px; flex-shrink: 0;
+}
+
+/* ── 効果 ── */
+.benefits-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 10px;
+}
+.benefit-item {
+  background: #fff; border: 1px solid #ddd5c0;
+  border-radius: 8px; padding: 14px 16px;
+  display: flex; gap: 12px; align-items: center;
+}
+.benefit-num {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 28px; height: 28px; flex-shrink: 0; border-radius: 50%;
+  background: linear-gradient(135deg, #2a4a3c, #a87e42);
+  color: #fff; font-family: 'Cormorant Garamond', serif; font-size: 13pt;
+}
+.benefit-title {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 11pt; font-weight: 400; color: #28201a;
+}
+
+/* ── コース ── */
+.course-cards {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 10px;
+}
+.course-card {
+  border: 1px solid #ddd5c0; border-radius: 8px;
+  overflow: hidden; background: #fff;
+}
+.course-card-top {
+  padding: 12px 16px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.course-card-top.green { background: #2a4a3c; }
+.course-card-top.teal  { background: #2a4040; }
+.course-card-top.gold  { background: #6a4a20; }
+.course-card-top.warm  { background: #4a3430; }
+.course-card-name {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 11pt; font-weight: 400; color: #fff;
+}
+.course-card-badge {
+  font-size: 7pt; color: #dcc07a;
+  border: 1px solid rgba(220,192,122,.4);
+  padding: 2px 8px; letter-spacing: .05em; white-space: nowrap;
+}
+.course-card-body { padding: 10px 16px 13px; }
+.course-card-desc {
+  font-size: 8.5pt; font-weight: 300; color: #4a3e32; line-height: 1.8;
+}
+
+/* ── フッター ── */
+.poster-footer {
+  background: #1e1a14; padding: 18px 36px;
+  display: flex; align-items: center;
+  justify-content: space-between; gap: 20px;
+}
+.footer-clinic { display: flex; flex-direction: column; gap: 4px; }
+.footer-name {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 11pt; font-weight: 400; color: #fff; letter-spacing: .06em;
+}
+.footer-address {
+  font-size: 8pt; font-weight: 300;
+  color: rgba(255,255,255,.45); line-height: 1.7;
+}
+.footer-tel {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20pt; font-weight: 300; color: #c8a054; letter-spacing: .08em;
+}
+.footer-cta { text-align: right; }
+.footer-cta-main {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 10pt; font-weight: 400; color: #fff;
+  margin-bottom: 4px; display: block;
+}
+.footer-cta-sub {
+  font-size: 8pt; font-weight: 300;
+  color: rgba(255,255,255,.45); line-height: 1.7;
+}
+
+.print-btn {
+  margin-top: 20px; padding: 12px 36px;
+  background: #2a4a3c; color: #fff;
+  font-family: 'Noto Sans JP', sans-serif;
+  font-size: 14px; border: none; border-radius: 4px;
+  cursor: pointer; letter-spacing: .1em; transition: background .2s;
+}
+.print-btn:hover { background: #3a6050; }
+</style>
+</head>
+<body>
+
+<div class="poster">
+
+  <!-- ヘッダー -->
+  <div class="poster-header">
+    <div class="header-top">
+      <span class="clinic-name">はぎわら治療院 × 朝香ピラティス</span>
+      <div class="logo-area">
+        <img src="images/asaka-pilates-logo.png" alt="ASAKA Medical Pilates"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+        <span class="logo-fallback" style="display:none">ASAKA</span>
+      </div>
+    </div>
+    <div class="header-main">
+      <span class="header-label">Medical Pilates — Hagiwara Clinic</span>
+      <h1 class="header-title">
+        施術で整えた体を、<br><em>ピラティス</em>でキープする。
+      </h1>
+      <p class="header-sub">治療の効果を、日常の動きへ。からだの変化を、ずっと続けるために。</p>
+    </div>
+  </div>
+
+  <div class="poster-body">
+
+    <!-- フロー -->
+    <div class="flow-section">
+      <span class="flow-label">Treatment Flow — 治療とピラティスの流れ</span>
+      <div class="flow-steps">
+
+        <div class="flow-step">
+          <div class="flow-step-box">
+            <span class="flow-num">1</span>
+            <span class="flow-step-name">施術（2F）</span>
+            <span class="flow-step-en">Shiatsu / Acupuncture</span>
+          </div>
+        </div>
+
+        <div class="flow-arrow"><span class="flow-arrow-sym">→</span></div>
+
+        <div class="flow-step">
+          <div class="flow-step-box">
+            <span class="flow-num">2</span>
+            <span class="flow-step-name">ピラティス（3F）</span>
+            <span class="flow-step-en">Medical Pilates</span>
+          </div>
+        </div>
+
+        <div class="flow-arrow"><span class="flow-arrow-sym">→</span></div>
+
+        <div class="flow-step">
+          <div class="flow-step-box">
+            <span class="flow-num">3</span>
+            <span class="flow-step-name">健康キープ</span>
+            <span class="flow-step-en">Stay Healthy</span>
+          </div>
+        </div>
+
+      </div>
+      <div class="flow-note">
+        順番はどちらでもOK。施術→ピラティス、ピラティス→施術、その日の体調で選べます。<br>
+        同じビル内（2F治療院・3Fピラティス）でそのまま移動できます。
+      </div>
+    </div>
+
+    <!-- 効果 -->
+    <div>
+      <h2 class="section-title">ピラティスを加えると</h2>
+      <div class="benefits-grid">
+        <div class="benefit-item">
+          <span class="benefit-num">1</span>
+          <p class="benefit-title">治療効果が長続きする</p>
+        </div>
+        <div class="benefit-item">
+          <span class="benefit-num">2</span>
+          <p class="benefit-title">姿勢・体幹が整う</p>
+        </div>
+        <div class="benefit-item">
+          <span class="benefit-num">3</span>
+          <p class="benefit-title">日常動作がスムーズに</p>
+        </div>
+        <div class="benefit-item">
+          <span class="benefit-num">4</span>
+          <p class="benefit-title">再発・不調を予防する</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- コース -->
+    <div>
+      <h2 class="section-title">選べる4つのコース</h2>
+      <div class="course-cards">
+        <div class="course-card">
+          <div class="course-card-top green">
+            <span class="course-card-name">のびのびほぐしコース</span>
+            <span class="course-card-badge">初めての方</span>
+          </div>
+          <div class="course-card-body">
+            <p class="course-card-desc">ボール・ポール・バンドを使ったやさしい入門コース。</p>
+          </div>
+        </div>
+        <div class="course-card">
+          <div class="course-card-top teal">
+            <span class="course-card-name">基本ピラティスコース</span>
+            <span class="course-card-badge">整えたい方</span>
+          </div>
+          <div class="course-card-body">
+            <p class="course-card-desc">呼吸・体幹・姿勢を丁寧に。心身ともに「整う」感覚を育てます。</p>
+          </div>
+        </div>
+        <div class="course-card">
+          <div class="course-card-top gold">
+            <span class="course-card-name">機能改善ピラティスコース</span>
+            <span class="course-card-badge">もっと動ける体へ</span>
+          </div>
+          <div class="course-card-body">
+            <p class="course-card-desc">体幹強化・可動域改善で、よくなった体をさらに動ける体へ。</p>
+          </div>
+        </div>
+        <div class="course-card">
+          <div class="course-card-top warm">
+            <span class="course-card-name">施術＋ピラティスコース</span>
+            <span class="course-card-badge">おすすめ</span>
+          </div>
+          <div class="course-card-body">
+            <p class="course-card-desc">施術とピラティスを同日に。順番はその日の体調で選べます。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- フッター -->
+  <div class="poster-footer">
+    <div class="footer-clinic">
+      <span class="footer-name">はぎわら治療院 ／ 朝香ピラティス</span>
+      <span class="footer-address">
+        〒227-0054 横浜市青葉区榎が丘2-1 ビンセプト<br>
+        2F 治療院（203号）／ 3F ピラティス（301号）2026年6月開院予定
+      </span>
+    </div>
+    <span class="footer-tel">045-530-9072</span>
+    <div class="footer-cta">
+      <span class="footer-cta-main">まずはお気軽にご相談ください</span>
+      <span class="footer-cta-sub">お電話・LINE・ウェブにて受付</span>
+    </div>
+  </div>
+
+</div>
+
+<button class="print-btn no-print" onclick="window.print()">🖨 印刷する（A4）</button>
+
+</body>
+</html>
